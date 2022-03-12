@@ -6,12 +6,12 @@ class EmptyQueue{};
 
 class Queue
 {
-  private:
+private:
     int front;
     int rear;
     char* items;
     int queueSize;
-  public:
+public:
     Queue();
     Queue(int queueSize);
     ~Queue();
