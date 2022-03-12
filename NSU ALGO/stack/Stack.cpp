@@ -12,20 +12,20 @@ class EmptyStack{};
 class Stack
 {
 private:
-   int stackSize;
-   int topIndex;
+  int stackSize;
+  int topIndex;
    int *items;
 
 public:
-   Stack();
-   Stack(int);
-   ~Stack();
-   void makeEmpty();
-   bool isFull();
-   bool isEmpty();
-   void push(int);
-   void pop();
-   int top();
+  Stack();
+  Stack(int);
+  ~Stack();
+  void makeEmpty();
+  bool isFull();
+  bool isEmpty();
+  void push(int);
+  void pop();
+  int top();
 };
 
 // Definitions
