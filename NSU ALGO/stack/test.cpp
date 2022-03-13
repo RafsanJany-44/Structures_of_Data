@@ -88,6 +88,8 @@ int main()
     cin >> st;
     int n=strlen(st);
     Stack<char> s(n);
+
+    
     int i=0;
     while(!s.isFull()){
         s.push(st[i]);
@@ -96,12 +98,7 @@ int main()
     cout << endl;
     cout << "Printing stack.." << endl;
     while(!s.isEmpty()){
-        if (s.top()=='(')
-        {
-            cout << s.top() << endl;
-
-        }
-       
+        cout << s.top() << endl;
         s.pop();
     }
 }
