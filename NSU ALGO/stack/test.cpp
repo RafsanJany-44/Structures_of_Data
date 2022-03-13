@@ -80,17 +80,30 @@ T Stack<T>::top()
     throw EmptyStack();
   return items[topIndex];
 }
+
+
+int get_precedence (char c) {
+    if(c == '^')
+        return 3;
+    else if(c == '/' || c=='*')
+        return 2;
+    else if(c == '+' || c == '-')
+        return 1;
+    else
+        return -1;
+}
+
 // main
 int main()
 {
-    char st[100];
+    char infix[100];
     char postfix[100];
-    cin >> st;
-    int n=strlen(st);
+    cin >> infix;
+    int n=strlen(infix);
     Stack<char> s(n);
 
     
-    int i=0;
+    /*int i=0;
     while(!s.isFull()){
         s.push(st[i]);
         i++;
@@ -100,19 +113,43 @@ int main()
     while(!s.isEmpty()){
         cout << s.top() << endl;
         s.pop();
+    }*/
+
+    string result;
+ 
+    for(int i = 0; i < n; i++) {
+        char c = infix[i];
+
+        if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
+            result += c;
+ 
+        else if(c == '(')
+            s.push('(');
+ 
+        else if(c == ')') {
+            while(s.top() != '(')
+            {
+                result += s.top();
+                s.pop();
+            }
+            s.pop();
+        }
+ 
+        //If an operator is scanned
+        else {
+            while(!s.isEmpty() && get_precedence(infix[i]) <= get_precedence(s.top())) {
+                result += s.top();
+                s.pop(); 
+            }
+            s.push(c);
+        }
     }
+ 
+    // Pop all the remaining elements from the stack
+    while(!s.isEmpty()) {
+        result += s.top();
+        s.pop();
+    }
+ 
+    cout << result << endl;
 }
-
-
-/*#include <iostream>
-using namespace std;
-
-int main()
-{
-    char st[100];
-    cin >> st;
-    int len = strlen(st);
-    for (int i=0;i<len;i++){
-        cout << st[i]<<endl;
-    }
-}*/
