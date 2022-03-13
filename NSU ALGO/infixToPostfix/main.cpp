@@ -9,76 +9,76 @@ template<typename T>
 class Stack
 {
 private:
-    int stackSize;
-    int topIndex;
-    T *items;
+  int stackSize;
+  int topIndex;
+   T *items;
 public:
-    Stack();
-    Stack(int);
-    ~Stack();
-    void makeEmpty();
-    bool isFull();
-    bool isEmpty();
-    void push(T);
-    void pop();
-    T top();
+  Stack();
+  Stack(int);
+  ~Stack();
+  void makeEmpty();
+  bool isFull();
+  bool isEmpty();
+  void push(T);
+  void pop();
+  T top();
 };
 // Definitions
 template<typename T>
 Stack<T>::Stack()
 {
-    stackSize = 5;
-    items = new T[stackSize];
-    topIndex = -1;
+  stackSize = 5;
+  items = new int[stackSize];
+  topIndex = -1;
 }
 template<typename T>
 Stack<T>::~Stack()
 {
-delete [] items;
+  delete [] items;
 }
 template<typename T>
 Stack<T>::Stack(int stackSize)
 {
-    this->stackSize = stackSize;
-    items = new T[stackSize];
-    topIndex = -1;
+  this->stackSize = stackSize;
+  items = new T[stackSize];
+  topIndex = -1;
 }
 template<typename T>
 void Stack<T>::makeEmpty()
 {
-topIndex = -1;
+  topIndex = -1;
 }
 template<typename T>
 bool Stack<T>::isEmpty()
 {
-    return (topIndex == -1);
+  return (topIndex == -1);
 }
 template<typename T>
 bool Stack<T>::isFull()
 {
-    return (topIndex ==  stackSize-1);
+  return (topIndex ==  stackSize-1);
 }
 template<typename T>
 void Stack<T>::push(T newItem)
 {
-if(isFull())
+  if(isFull())
     throw FullStack();
-    topIndex++;
-    items[topIndex] = newItem;
+  topIndex++;
+  items[topIndex] = newItem;
 }
 template<typename T>
 void Stack<T>::pop()
 {
-if(isEmpty())
+  if(isEmpty())
     throw EmptyStack();
-    topIndex--;
+  topIndex--;
 }
 template<typename T>
 T Stack<T>::top()
 {
-if (isEmpty())
+  if (isEmpty())
     throw EmptyStack();
-    return items[topIndex];
+  return items[topIndex];
 }
 
 
@@ -91,24 +91,6 @@ int get_precedence (char c) {
         return 1;
     else
         return -1;
-}
-
-void PrintStack(Stack<char> s)
-{
-    Stack<char> temp;
-    while (s.isEmpty() == false)
-    {
-        temp.push(s.top());
-        s.pop();
-    }  
- 
-    while (temp.isEmpty() == false)
-    {
-        char t = temp.top();
-        cout << t << " ";
-        temp.pop();
-        s.push(t); 
-    }
 }
 
 // main
@@ -156,9 +138,7 @@ int main()
             }
             s.push(c);
         }
-        cout<<postfix<<"-----"<< endl;
-        PrintStack(s);
-        
+        cout << postfix<<endl;
     }
     while(!s.isEmpty()) {
         postfix += s.top();
@@ -167,4 +147,5 @@ int main()
     cout<<"The Postfix of the given Infix:"<<endl;
     cout << postfix << endl;
 }
-//  (4+8)*(6-5)/((3-2)*(2+2))
+
+//(4+8)*(6-5)/((3-2)*(2+2))
