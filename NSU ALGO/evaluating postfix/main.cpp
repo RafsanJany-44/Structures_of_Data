@@ -135,6 +135,7 @@ int main()
       }else if(isOperand(postfix[i]) > 0){
          s.push(scanNum(postfix[i]));
       }
+      
    }
    
    float ans= s.top();
