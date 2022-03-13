@@ -28,7 +28,7 @@ template<typename T>
 Stack<T>::Stack()
 {
   stackSize = 5;
-  items = new int[stackSize];
+  items = new T[stackSize];
   topIndex = -1;
 }
 template<typename T>
