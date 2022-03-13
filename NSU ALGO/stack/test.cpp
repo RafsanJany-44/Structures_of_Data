@@ -97,7 +97,9 @@ int get_precedence (char c) {
 int main()
 {
     char infix[100];
-    char postfix[100];
+    //char postfix[100];
+    string postfix;
+    cout<<"Enter the infix"<<endl;
     cin >> infix;
     int n=strlen(infix);
     Stack<char> s(n);
@@ -114,42 +116,33 @@ int main()
         cout << s.top() << endl;
         s.pop();
     }*/
-
-    string result;
- 
     for(int i = 0; i < n; i++) {
         char c = infix[i];
 
         if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
-            result += c;
- 
+            postfix += c;
         else if(c == '(')
             s.push('(');
- 
         else if(c == ')') {
             while(s.top() != '(')
             {
-                result += s.top();
+                postfix += s.top();
                 s.pop();
             }
             s.pop();
         }
- 
-        //If an operator is scanned
         else {
             while(!s.isEmpty() && get_precedence(infix[i]) <= get_precedence(s.top())) {
-                result += s.top();
+                postfix += s.top();
                 s.pop(); 
             }
             s.push(c);
         }
     }
- 
-    // Pop all the remaining elements from the stack
     while(!s.isEmpty()) {
-        result += s.top();
+        postfix += s.top();
         s.pop();
     }
- 
-    cout << result << endl;
+    cout<<"The Postfix of the given Infix:"<<endl;
+    cout << postfix << endl;
 }
