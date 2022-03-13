@@ -99,7 +99,7 @@ int main()
     char infix[100];
     //char postfix[100];
     string postfix;
-    cout<<"Enter the infix"<<endl;
+    cout<<"Enter the Infix:"<<endl;
     cin >> infix;
     int n=strlen(infix);
     Stack<char> s(n);
