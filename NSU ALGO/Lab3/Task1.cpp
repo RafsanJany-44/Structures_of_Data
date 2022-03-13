@@ -9,19 +9,19 @@ template<typename T>
 class Stack
 {
 private:
-   int stackSize;
-   int topIndex;
+  int stackSize;
+  int topIndex;
    T *items;
 public:
-   Stack();
-   Stack(int);
-   ~Stack();
-   void makeEmpty();
-   bool isFull();
-   bool isEmpty();
-   void push(T);
-   void pop();
-   T top();
+  Stack();
+  Stack(int);
+  ~Stack();
+  void makeEmpty();
+  bool isFull();
+  bool isEmpty();
+  void push(T);
+  void pop();
+  T top();
 };
 // Definitions
 template<typename T>
