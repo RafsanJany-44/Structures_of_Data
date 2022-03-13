@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 // Exception class thrown by push() when stack is full.
 class FullStack{};
@@ -101,8 +102,8 @@ int isOperator(char ch){
          return b*a;
       else if(op == '/')
          return b/a;
-     // else if(op == '^')
-    //     return pow(b,a); //find b^a
+      else if(op == '^')
+        return pow(b,a); 
       else
    return INT_MIN; //return negative infinity
 }
