@@ -3,13 +3,13 @@ using namespace std;
 
 class FullQueue{};
 class EmptyQueue{};
-
+template<typename T>
 class Queue
 {
   private:
     int front;
     int rear;
-    char* items;
+    T* items;
     int queueSize;
   public:
     Queue();
@@ -18,43 +18,44 @@ class Queue
     void makeEmpty();
     bool isEmpty();
     bool isFull();
-    void enqueue(char item);
-    char dequeue();
+    void enqueue(T item);
+    T dequeue();
 };
 
 // Definitions
-Queue::Queue(int qSize){
+template<typename T>
+Queue<T>::Queue(int qSize){
     queueSize = qSize + 1;
     front = queueSize - 1;
     rear = queueSize - 1;
-    items = new char[queueSize];
+    items = new T[queueSize];
 }
-
-Queue::Queue(){
+template<typename T>
+Queue<T>::Queue(){
     queueSize = 11;
     front = queueSize - 1;
     rear = queueSize - 1;
-    items = new char[queueSize];
+    items = new T[queueSize];
 }
-
-Queue::~Queue(){
+template<typename T>
+Queue<T>::~Queue(){
     delete [] items;
 }
-
-void Queue::makeEmpty(){
+template<typename T>
+void Queue<T>::makeEmpty(){
     front = queueSize - 1;
     rear = queueSize - 1;
 }
-
-bool Queue::isEmpty(){
+template<typename T>
+bool Queue<T>::isEmpty(){
     return (rear == front);
 }
-
-bool Queue::isFull(){
+template<typename T>
+bool Queue<T>::isFull(){
     return ((rear+1)%queueSize == front);
 }
-
-void Queue::enqueue(char item){
+template<typename T>
+void Queue<T>::enqueue(T item){
     if(isFull()){
         throw FullQueue();
     }else{
@@ -62,8 +63,8 @@ void Queue::enqueue(char item){
         items[rear] = item;
     }
 }
-
-char Queue::dequeue(){
+template<typename T>
+T Queue<T>::dequeue(){
     if(isEmpty()){
         throw EmptyQueue();
     }else{
@@ -79,7 +80,7 @@ int main()
     char i;
     cout << "Enter the size of the queue: ";
     cin >> qSize;
-    Queue q(qSize);
+    Queue<char> q(qSize);
 
     cout << "Enter " << qSize << " items into the queue: " << endl;
     while(!q.isFull()){
