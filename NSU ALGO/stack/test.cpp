@@ -83,7 +83,8 @@ T Stack<T>::top()
 // main
 int main()
 {
-     char st[100];
+    char st[100];
+    char postfix[100];
     cin >> st;
     int n=strlen(st);
     Stack<char> s(n);
@@ -95,7 +96,12 @@ int main()
     cout << endl;
     cout << "Printing stack.." << endl;
     while(!s.isEmpty()){
-        cout << s.top() << endl;
+        if (s.top()=='(')
+        {
+            cout << s.top() << endl;
+
+        }
+       
         s.pop();
     }
 }
