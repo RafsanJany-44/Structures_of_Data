@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-//add
+
 class FullQueue{};
 class EmptyQueue{};
 
