@@ -28,7 +28,7 @@ template<typename T>
 Stack<T>::Stack()
 {
     stackSize = 5;
-    items = new int[stackSize];
+    items = new T[stackSize];
     topIndex = -1;
 }
 template<typename T>
@@ -93,6 +93,24 @@ int get_precedence (char c) {
         return -1;
 }
 
+void PrintStack(Stack<char> s)
+{
+    Stack<char> temp;
+    while (s.isEmpty() == false)
+    {
+        temp.push(s.top());
+        s.pop();
+    }  
+ 
+    while (temp.isEmpty() == false)
+    {
+        char t = temp.top();
+        cout << t << " ";
+        temp.pop();
+        s.push(t); 
+    }
+}
+
 // main
 int main()
 {
@@ -138,7 +156,8 @@ int main()
             }
             s.push(c);
         }
-        cout<<postfix<< endl;
+        cout<<postfix<<"-----"<< endl;
+        PrintStack(s);
         
     }
     while(!s.isEmpty()) {
