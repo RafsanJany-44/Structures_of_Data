@@ -46,5 +46,5 @@ int main(){
     cout << "This is called a dangling pointer." << endl;
     cout << "NEVER DO THIS!" << endl;
     //getch();
-    cin>>gar
+    cin>>gar;
 }
