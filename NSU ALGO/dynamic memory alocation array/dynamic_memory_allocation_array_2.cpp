@@ -3,7 +3,7 @@
 using namespace std;
 
 int* createArray(){
-    int* A = new int[10];
+    int* A = new int[10];  //array will be created dynamecally
     for(int i=0; i<10; i++){
         A[i] = rand()%10;
     }

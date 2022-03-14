@@ -13,7 +13,7 @@ int main(){
 
     cout << "Name: " << c.name << " | Phone number: " << c.phoneNumber << endl;
 
-    Contact* p = &c;
+    Contact* p = &c;  //object pointer created
     p->name = "Xyz";
     p->phoneNumber = "010101";
 
