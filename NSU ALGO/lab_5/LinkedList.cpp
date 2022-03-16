@@ -76,7 +76,6 @@ public:
 int main(){
     // Create a LinkedList
     LinkedList L;
-       
     // Add two nodes at the beginning of the list
     L.addNodeAtFront(1);
     L.addNodeAtFront(10);
