@@ -110,18 +110,45 @@ public:
 
     // Prints the last node of a linked list
     void printLastNode(){
-        // complete this function
+        Node *current = head;
+        cout << "Last ->  ";
+        int i=0;
+        while(i<this->getLength()-1){
+            current=current->next;
+            i++;
+        }
+        cout << current->data;
     }
 
     // Returns the length of the list
-    void getLength(){
-        // complete this function
-    }
+    int getLength() {  
+    int count = 0; 
+    Node* current = head;
+    while (current != NULL) 
+    { 
+        count++; 
+        current = current->next; 
+    } 
+    return count; 
+} 
 };
 
 int main(){
     // Complete the printLastNode() and getLength() functions
     // Create a linked list and test the functions you wrote
+    LinkedList L;
+    cout <<endl;
+    L.addNodeAtFront(1);
+    L.addNodeAtFront(2);
+    L.addNodeAtEnd(3);
+    L.addNodeAtEnd(4);
+    L.addNodeAtEnd(5);
+    L.addNodeAtEnd(6);
+    L.printNodes();
+    cout << endl;
+    cout <<"The length of the node is " <<L.getLength()<<endl;
+    L.printLastNode();
+    cout <<endl;
 }
 
 
