@@ -70,9 +70,18 @@ public:
         }
         cout << endl;
     }
+        void printLastNode(){
+        Node *current = head;
+        cout << "Last -> ";
+        int i=0;
+        while(i<this->getLength()-1){
+            current=current->next;
+            i++;
+        }
+        cout << current->data;
+    }
 
-    int getLength() 
-{  
+    int getLength() {  
     int count = 0; 
     Node* current = head;
     while (current != NULL) 
@@ -98,13 +107,14 @@ int main(){
     L.appendNode(3);
     // Print the list
     L.printNodes();
-    // Delete the last node
+ /*   // Delete the last node
     L.deleteLastNode();
     // Print the list
     L.printNodes();
     // Delete the first node
     L.deleteFirstNode();
     // Print the list
-    L.printNodes();
+    L.printNodes();*/
     cout << L.getLength();
+    L.printLastNode();
 }
