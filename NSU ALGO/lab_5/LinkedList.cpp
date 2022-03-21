@@ -71,6 +71,18 @@ public:
         cout << endl;
     }
 
+    int getLength() 
+{  
+    int count = 0; 
+    Node* current = head;
+    while (current != NULL) 
+    { 
+        count++; 
+        current = current->next; 
+    } 
+    return count; 
+} 
+
 };
 
 int main(){
@@ -94,4 +106,5 @@ int main(){
     L.deleteFirstNode();
     // Print the list
     L.printNodes();
+    cout << L.getLength();
 }
