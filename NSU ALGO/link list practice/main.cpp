@@ -67,6 +67,24 @@ private:
         return sum;
     }
 
+    void checkOddpostion(Node *n)
+    {
+        if (head == NULL)
+        {
+            return;
+        }
+        int index = 0;
+        while (n != NULL)
+        {
+            if (index % 2 != 0)
+            {
+                cout << n->data << " ";
+            }
+            n = n->next;
+            index = index + 1;
+        }
+    }
+
 public:
     LinkedList()
     {
@@ -217,6 +235,10 @@ public:
     {
         return sumOfList(head);
     }
+    void checkOddpostion()
+    {
+        return checkOddpostion(head);
+    }
 };
 
 int main()
@@ -233,6 +255,7 @@ int main()
     LL.printListReverse();
     cout << endl;
     cout << "The sum: " << LL.sumOfList() << endl;
+    LL.checkOddpostion();
     // Complete the printListReverse(Node *n) function
     // Complete the sumOfList(Node *n) function
     // Test these two functions in the main function
