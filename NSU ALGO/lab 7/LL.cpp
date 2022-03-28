@@ -49,12 +49,12 @@ private:
 
     int sumOfList(Node *n){
         // complete this recursive function
-          int sum = 0;
-   while (head != NULL) {
-     sum += head->data; 
-     head = head->next;
-   }
-   return sum;
+        int sum = 0;
+        while (head != NULL) {
+        sum += head->data; 
+        head = head->next;
+    }
+    return sum;
     }
 
 public:
