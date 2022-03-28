@@ -38,7 +38,6 @@ private:
         deleteAllNodes(n);
     }
 
-
     void printListReverse(Node *n){
         // complete this recursive function
 	if (n == NULL)
