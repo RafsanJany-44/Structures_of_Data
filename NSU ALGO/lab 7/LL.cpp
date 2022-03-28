@@ -44,7 +44,7 @@ private:
 	if (n == NULL)
 		return;
 	printListReverse(n->next);
-	cout << n->data << " ";
+	cout << n->data << ", ";
     }
 
     int sumOfList(Node *n){
@@ -178,6 +178,7 @@ int main(){
     LL.addNodeAtEndRecursive(4);
     LL.addNodeAtEndRecursive(5);
     LL.printList();
+    cout <<"The reverse List:"<<endl;
     LL.printListReverse();
     // Complete the printListReverse(Node *n) function
     // Complete the sumOfList(Node *n) function
