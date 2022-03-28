@@ -21,8 +21,8 @@ private:
         cout << n->data << ", ";
         printListRecursive(n->next);
     }
-
-    void addNodeAtEndRecursive(int data, Node *&n)
+    void
+    addNodeAtEndRecursive(int data, Node *&n)
     {
         if (n == NULL)
         {
