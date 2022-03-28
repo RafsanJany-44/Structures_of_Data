@@ -5,16 +5,16 @@ Linked List Practice Problems:
 1. ... deletes the last node of a linked list.
 2. ... checks if the elements in a linked list are sorted (in ascending order) or not.
 3. ... deletes the node at a specific position.
-4. ... deletes all the nodes with a specific value.
+*4. ... deletes all the nodes with a specific value.
 5. ... sorts the values in a linked list.
 6. ... creates a copy of a linked list and returns the head of the new list.
 7. ... takes two linked lists and connects the second list at the end of the first list to create a single list.
 8. ... reverses a linked list.
 9. ... inserts a node at the specified position in the list.
-10. ... deletes every single node of a list.
-11. ... checks if a linked list is empty or not.
-12. ... returns the average value of all the nodes.
-13. ... only prints the nodes at odd position/index.
+*10. ... deletes every single node of a list.
+*11. ... checks if a linked list is empty or not.
+*12. ... returns the average value of all the nodes.
+*13. ... only prints the nodes at odd position/index.
 
 14. Implement the Stack data structure using linked list. (isEmpty(), push(), pop(), top())
 15. Implement the Queue data structure using linked list. (isEmpty(), enqueue(), dequeue())
