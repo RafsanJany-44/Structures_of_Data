@@ -184,9 +184,11 @@ int main(){
     LL.addNodeAtEndRecursive(4);
     LL.addNodeAtEndRecursive(5);
     LL.printList();
-    cout <<"The reverse List:"<<endl;
+    cout <<endl;
+    cout <<"The reverse List: ";
     LL.printListReverse();
-    cout <<LL.sumOfList();
+    cout << endl;
+    cout<<"The sum: "<<LL.sumOfList()<<endl;
     // Complete the printListReverse(Node *n) function
     // Complete the sumOfList(Node *n) function
     // Test these two functions in the main function
