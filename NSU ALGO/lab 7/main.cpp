@@ -160,11 +160,11 @@ public:
     return count; 
 } 
 
-    void sorting(){
+    void sort(){
         Node* cur1 = head;
         Node* cur2 = head;
 
-       for (int i = 0; i < this->getLength(); i++) {
+    for (int i = 0; i < this->getLength(); i++) {
         for (int j = 0; j < this->getLength() - 1; j++) {
             if (cur1->data < cur2->data) {
                 int temp = cur1->data;
@@ -174,15 +174,16 @@ public:
             }
             cur2 = cur2->next;
         }
-         cur2 = head;
-         cur1 = head->next;
-         for (int k = 0; k < i; k++) {
+        cur2 = head;
+        cur1 = head->next;
+        for (int k = 0; k < i; k++) {
                 cur1 = cur1->next;
-         }
+        }
     }
 
 
 }
+
 
 };
 
@@ -191,6 +192,7 @@ int main(){
     LL.addNodeAtEndRecursive(6);
     LL.addNodeAtEndRecursive(7);
     LL.addNodeAtEndRecursive(5);
+    LL.sort();
     LL.printList();
     LL.deleteAllNodes();
     LL.printList();
