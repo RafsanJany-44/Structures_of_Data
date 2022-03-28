@@ -1,0 +1,199 @@
+#include<iostream>
+using namespace std;
+
+struct Node{
+    int data;
+    Node *next;
+};
+
+class LinkedList{
+private:
+    Node *head;
+
+    void printListRecursive(Node *n){
+        if(n == NULL){
+            return;
+        }
+        cout << n->data << ", ";
+        printListRecursive(n->next);
+    }
+
+    void addNodeAtEndRecursive(int data, Node *&n){
+        if(n == NULL){
+            n = new Node;
+            n->data = data;
+            n->next = NULL;
+            return;
+        }
+        addNodeAtEndRecursive(data, n->next);
+    }
+
+    void deleteAllNodes(Node *&n){
+        if(n == NULL){
+            return;
+        }
+        Node *temp = n;
+        n = n->next;
+        delete temp;
+        deleteAllNodes(n);
+    }
+
+public:
+    LinkedList(){
+        head = NULL;
+    }
+
+    // Deletes the first node from the list
+    void deleteFirstNode(){
+        if(head == NULL){
+            return;
+        }
+        Node *temp = head;
+        head = head->next;
+        delete temp;
+    }
+
+    // Deletes the last node from the list
+    void deleteLastNode(){
+        if(head == NULL){
+            return;
+        }
+        if(head->next == NULL){
+            deleteFirstNode();
+        }else{
+            Node *current = head;
+            while(current->next->next!=NULL){
+                current=current->next;
+            }
+            delete current->next;
+            current->next = NULL;
+        }
+    }
+
+    // Adds a node at the front position of the list
+    void addNodeAtFront(int data){
+        Node *n = new Node;
+        n->data = data;
+        n->next = head;
+        head = n;
+    }
+
+    // Adds a node at the end of the list
+    void addNodeAtEnd(int data){
+        Node *n = new Node;
+        n->data = data;
+        n->next = NULL;
+        if(head==NULL){ //list is empty
+            head = n;
+        }else{
+            Node *current = head;
+            while(current->next!=NULL){
+                current=current->next;
+            }
+            current->next = n;
+        }
+    }
+
+    // Inserts a node at the specified position
+    // The front node's position is 0
+    void insertNode(int data, int position){
+        if(position==0){
+            addNodeAtFront(data);
+        }else{
+            Node *current = head;
+            for(int i=0; i<position-1; i++){
+                current = current->next;
+            }
+            Node *n = new Node;
+            n->data = data;
+            n->next = current->next;
+            current->next = n;
+        }
+    }
+
+    // Inserts a node at the specified position
+    // The front node's position is 0
+    void deleteNode(int position){
+        if(position==0){
+            deleteFirstNode();
+        }else{
+            Node *current = head;
+            for(int i=0; i<position-1; i++){
+                current = current->next;
+            }
+            Node *temp = current->next;
+            current->next = temp->next;
+            delete temp;
+        }
+    }
+
+    void printNodes(){
+        Node *current = head;
+        cout << "head -> ";
+        while(current!=NULL){
+            cout << current->data << " -> ";
+            current=current->next;
+        }
+        cout << endl;
+    }
+
+    void printList(){
+        printListRecursive(head);
+    }
+
+    void addNodeAtEndRecursive(int data){
+        addNodeAtEndRecursive(data,head);
+    }
+
+    void deleteAllNodes(){
+        deleteAllNodes(head);
+    }
+
+    int getLength() {  
+    int count = 0; 
+    Node* current = head;
+    while (current != NULL) 
+    { 
+        count++; 
+        current = current->next; 
+    } 
+    return count; 
+} 
+
+    void sorting(){
+        Node* cur1 = head;
+        Node* cur2 = head;
+
+       for (int i = 0; i < this->getLength(); i++) {
+        for (int j = 0; j < this->getLength() - 1; j++) {
+            if (cur1->data < cur2->data) {
+                int temp = cur1->data;
+                cur1->data = cur2->data;
+                cur2->data = temp;
+
+            }
+            cur2 = cur2->next;
+        }
+         cur2 = head;
+         cur1 = head->next;
+         for (int k = 0; k < i; k++) {
+                cur1 = cur1->next;
+         }
+    }
+
+
+}
+
+};
+
+int main(){
+    LinkedList LL;
+    LL.addNodeAtEndRecursive(6);
+    LL.addNodeAtEndRecursive(7);
+    LL.addNodeAtEndRecursive(5);
+    LL.printList();
+    LL.deleteAllNodes();
+    LL.printList();
+
+
+}
