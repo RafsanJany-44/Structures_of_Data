@@ -225,6 +225,8 @@ int main()
     LL.addNodeAtEndRecursive(6);
     LL.addNodeAtEndRecursive(4);
     LL.addNodeAtEndRecursive(5);
+    LL.addNodeAtEndRecursive(3);
+    LL.addNodeAtEndRecursive(10);
     LL.printList();
     cout << endl;
     cout << "The reverse List: ";
