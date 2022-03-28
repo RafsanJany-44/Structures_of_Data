@@ -61,6 +61,7 @@ private:
         int sum = 0;
         while (head != NULL)
         {
+            cout << head->data << endl;
             sum += head->data;
             head = head->next;
         }
@@ -69,18 +70,21 @@ private:
 
     void checkOddpostion(Node *n)
     {
-        if (head == NULL)
+
+        if (head != NULL)
         {
             return;
         }
+
         int index = 0;
-        while (n != NULL)
+        while (head != NULL)
         {
+            cout << "elloworld";
             if (index % 2 != 0)
             {
-                cout << n->data << " ";
+                cout << head->data << " ";
             }
-            n = n->next;
+            head = head->next;
             index = index + 1;
         }
     }
