@@ -9,12 +9,15 @@ Linked List Practice Problems:
 5. ... sorts the values in a linked list.
 6. ... creates a copy of a linked list and returns the head of the new list.
 7. ... takes two linked lists and connects the second list at the end of the first list to create a single list.
-8. ... reverses a linked list.
+ 8. ... reverses a linked list.
 9. ... inserts a node at the specified position in the list.
 *10. ... deletes every single node of a list.
 *11. ... checks if a linked list is empty or not.
 *12. ... returns the average value of all the nodes.
 *13. ... only prints the nodes at odd position/index.
+
+
+rafsan jany is the main problem but he 
 
 14. Implement the Stack data structure using linked list. (isEmpty(), push(), pop(), top())
 15. Implement the Queue data structure using linked list. (isEmpty(), enqueue(), dequeue())
