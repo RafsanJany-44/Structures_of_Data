@@ -49,6 +49,12 @@ private:
 
     int sumOfList(Node *n){
         // complete this recursive function
+          int sum = 0;
+   while (head != NULL) {
+     sum += head->data; 
+     head = head->next;
+   }
+   return sum;
     }
 
 public:
@@ -180,6 +186,7 @@ int main(){
     LL.printList();
     cout <<"The reverse List:"<<endl;
     LL.printListReverse();
+    cout <<LL.sumOfList();
     // Complete the printListReverse(Node *n) function
     // Complete the sumOfList(Node *n) function
     // Test these two functions in the main function
