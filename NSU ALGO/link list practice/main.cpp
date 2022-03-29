@@ -71,7 +71,7 @@ private:
     void checkOddpostion(Node *n)
     {
 
-        if (head != NULL)
+        if (n != NULL)
         {
             return;
         }
