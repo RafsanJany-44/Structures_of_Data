@@ -1,0 +1,23 @@
+
+Open Terminal:
+
+Step-1:
+Mac Intel:
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+M1 Mac:
+arch -x86_64 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install)" < /dev/null 2> /dev/null
+
+
+
+
+Step-2:
+Intel Mac: 
+brew install MinGW-w64
+
+M1 Mac: 
+arch -x86_64 brew install MinGW-w64
+
+
+Step-3:
+install Code Runner extension
