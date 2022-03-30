@@ -159,51 +159,55 @@ public:
     // prints the value of middle node.
     // if the list has even number of nodes
     // then print two values
-  void printMiddleNode(){
-    Node *current = head;
+    void printMiddleNode()
+    {
+        Node *current = head;
         int index = 0;
         while (current != NULL)
         {
             current = current->next;
             index = index + 1;
         }
-  
-      if (index%2==0){
-      int mid1,mid2;
-      Node *cur = head;
-        int i = 0;
-        while (cur != NULL)
-        {
-          
-          if(i==(index/2)-1){
-            mid1=cur->data;
-          }
-          if(i==(index/2)){
-            mid2=cur->data;
-          }
-            i = i + 1;
-          cur = cur->next;
-        }
-      cout<<"The mid(s) are: "<<mid1<<","<<mid2;
-    }
-    else{
-      int mid;
-      Node *curr = head;
-        int i = 0;
-        while (curr != NULL)
-        {
-          
-          if(i==(index/2)){
-            mid=curr->data;
-          }
-            i = i + 1;
-          curr = curr->next;
-        }
-      cout<<"The mid is: "<<mid;
-      
-    }
-  }
 
+        if (index % 2 == 0)
+        {
+            int mid1, mid2;
+            Node *cur = head;
+            int i = 0;
+            while (cur != NULL)
+            {
+
+                if (i == (index / 2) - 1)
+                {
+                    mid1 = cur->data;
+                }
+                if (i == (index / 2))
+                {
+                    mid2 = cur->data;
+                }
+                i = i + 1;
+                cur = cur->next;
+            }
+            cout << "The mid(s) are: " << mid1 << "," << mid2;
+        }
+        else
+        {
+            int mid;
+            Node *curr = head;
+            int i = 0;
+            while (curr != NULL)
+            {
+
+                if (i == (index / 2))
+                {
+                    mid = curr->data;
+                }
+                i = i + 1;
+                curr = curr->next;
+            }
+            cout << "The mid is: " << mid;
+        }
+    }
 };
 
 int main()
