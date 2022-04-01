@@ -80,10 +80,10 @@ int main(){
         cout << queue.firstItem() <<" ";
         queue.dequeue();
     }
-    cout << endl
-    cout << endl << "Deleting each elements" << endl;
+    cout << endl;
+    cout << "Deleting each elements" << endl;
     queue.makeEmpty();
-    cout << "Values in the queue: " << endl;
+    cout << "Queue elements:  " << endl;
     while(!queue.isEmpty()){
         cout << queue.firstItem() <<" ";
         queue.dequeue();
