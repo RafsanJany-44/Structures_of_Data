@@ -67,15 +67,15 @@ int main(){
     stack.push(6);
     stack.push(4);
     stack.push(2);
-    cout << "Values in the stack: " << endl;
+    cout << "Staack elements: " << endl;
     while(!stack.isEmpty()){
         cout<<stack.Top()<<" ";
         stack.pop();
     }
 
-    cout << endl << "Making stack empty..." << endl;
+    cout << "Deleting each elements" << endl;
     stack.makeEmpty();
-    cout << "Values in the stack: " << endl;
+    cout << "Queue elements:  " << endl;
     while(!stack.isEmpty()){
         cout<<stack.Top()<<" ";
         stack.pop();
