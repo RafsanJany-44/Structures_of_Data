@@ -56,26 +56,30 @@ int main(){
     //Complete the functions above
     //Call each function here in the main()
     //to test if they are working correctly
-    Stack s1;
-    s1.push(1);
-    s1.push(2);
-    s1.push(3);
-    s1.push(4);
-    s1.push(5);
+    Stack stack;
+    stack.push(2);
+    stack.push(0);
+    stack.push(3);
+    stack.push(1);
+    stack.push(7);
+    stack.push(4);
+    stack.push(1);
+    stack.push(6);
+    stack.push(4);
+    stack.push(2);
     cout << "Values in the stack: " << endl;
-    while(!s1.isEmpty()){
-        cout<<s1.Top()<<" ";
-        s1.pop();
+    while(!stack.isEmpty()){
+        cout<<stack.Top()<<" ";
+        stack.pop();
     }
 
     cout << endl << "Making stack empty..." << endl;
-    s1.makeEmpty();
+    stack.makeEmpty();
     cout << "Values in the stack: " << endl;
-    while(!s1.isEmpty()){
-        cout<<s1.Top()<<" ";
-        s1.pop();
+    while(!stack.isEmpty()){
+        cout<<stack.Top()<<" ";
+        stack.pop();
     }
 }
-
 
 
