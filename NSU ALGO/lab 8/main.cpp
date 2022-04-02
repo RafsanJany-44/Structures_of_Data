@@ -12,82 +12,6 @@ class LinkedList
 private:
     Node *head;
 
-    void printListRecursive(Node *n)
-    {
-        if (n == NULL)
-        {
-            return;
-        }
-        cout << n->data << ", ";
-        printListRecursive(n->next);
-    }
-    void
-    addNodeAtEndRecursive(int data, Node *&n)
-    {
-        if (n == NULL)
-        {
-            n = new Node;
-            n->data = data;
-            n->next = NULL;
-            return;
-        }
-        addNodeAtEndRecursive(data, n->next);
-    }
-    void deleteAllNodes(Node *&n)
-    {
-        if (n == NULL)
-        {
-            return;
-        }
-        Node *temp = n;
-        n = n->next;
-        delete temp;
-        deleteAllNodes(n);
-    }
-
-    void printListReverse(Node *n)
-    {
-        // complete this recursive function
-        if (n == NULL)
-            return;
-        printListReverse(n->next);
-        cout << n->data << ", ";
-    }
-
-    int sumOfList(Node *n)
-    {
-        // complete this recursive function
-        int sum = 0;
-        while (head != NULL)
-        {
-            cout << head->data << endl;
-            sum += head->data;
-            head = head->next;
-        }
-        return sum;
-    }
-
-    void checkOddpostion(Node *n)
-    {
-
-        if (n != NULL)
-        {
-            return;
-        }
-
-        int index = 0;
-        while (head != NULL)
-        {
-            cout << "elloworld";
-            if (index % 2 != 0)
-            {
-                cout << head->data << " ";
-            }
-            head = head->next;
-            index = index + 1;
-        }
-    }
-
 public:
     LinkedList()
     {
@@ -214,52 +138,90 @@ public:
         cout << endl;
     }
 
-    void printList()
+    // return the average value of all nodes
+    float getAverage()
     {
-        printListRecursive(head);
+        Node *current = head;
+        int sum = 0;
+        float avg = 0;
+        int index = 0;
+        while (current != NULL)
+        {
+
+            sum = sum + current->data;
+            current = current->next;
+            index = index + 1;
+        }
+        avg = (sum / index);
+        return avg;
     }
 
-    void addNodeAtEndRecursive(int data)
+    // prints the value of middle node.
+    // if the list has even number of nodes
+    // then print two values
+    void printMiddleNode()
     {
-        addNodeAtEndRecursive(data, head);
-    }
+        Node *current = head;
+        int index = 0;
+        while (current != NULL)
+        {
+            current = current->next;
+            index = index + 1;
+        }
 
-    void deleteAllNodes()
-    {
-        deleteAllNodes(head);
-    }
+        if (index % 2 == 0)
+        {
+            int mid1, mid2;
+            Node *cur = head;
+            int i = 0;
+            while (cur != NULL)
+            {
 
-    void printListReverse()
-    {
-        printListReverse(head);
-    }
+                if (i == (index / 2) - 1)
+                {
+                    mid1 = cur->data;
+                }
+                if (i == (index / 2))
+                {
+                    mid2 = cur->data;
+                }
+                i = i + 1;
+                cur = cur->next;
+            }
+            cout << "The mid(s) are: " << mid1 << "," << mid2;
+        }
+        else
+        {
+            int mid;
+            Node *curr = head;
+            int i = 0;
+            while (curr != NULL)
+            {
 
-    int sumOfList()
-    {
-        return sumOfList(head);
-    }
-    void checkOddpostion()
-    {
-        return checkOddpostion(head);
+                if (i == (index / 2))
+                {
+                    mid = curr->data;
+                }
+                i = i + 1;
+                curr = curr->next;
+            }
+            cout << "The mid is: " << mid;
+        }
     }
 };
 
 int main()
 {
     LinkedList LL;
-    LL.addNodeAtEndRecursive(6);
-    LL.addNodeAtEndRecursive(4);
-    LL.addNodeAtEndRecursive(5);
-    LL.addNodeAtEndRecursive(3);
-    LL.addNodeAtEndRecursive(10);
-    LL.printList();
-    cout << endl;
-    cout << "The reverse List: ";
-    LL.printListReverse();
-    cout << endl;
-    cout << "The sum: " << LL.sumOfList() << endl;
-    //LL.checkOddpostion();
-    // Complete the printListReverse(Node *n) function
-    // Complete the sumOfList(Node *n) function
+    LL.addNodeAtEnd(6);
+    LL.addNodeAtEnd(4);
+    LL.addNodeAtEnd(5);
+    LL.addNodeAtEnd(7);
+    LL.printNodes();
+    cout<<"The avarage:";
+    cout << LL.getAverage()<<endl;
+    LL.printMiddleNode();
+    // Complete the getAverage() function
+    // Complete the printMiddleNode() function
     // Test these two functions in the main function
 }
