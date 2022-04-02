@@ -51,7 +51,6 @@ public:
         top = NULL;
     }
 };
-
 int main(){
     //Complete the functions above
     //Call each function here in the main()
@@ -72,7 +71,6 @@ int main(){
         cout<<stack.Top()<<" ";
         stack.pop();
     }
-
     cout << "Deleting each elements" << endl;
     stack.makeEmpty();
     cout << "Queue elements:  " << endl;
