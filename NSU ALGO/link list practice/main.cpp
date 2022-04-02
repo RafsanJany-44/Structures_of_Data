@@ -33,7 +33,6 @@ private:
         }
         addNodeAtEndRecursive(data, n->next);
     }
-
     void deleteAllNodes(Node *&n)
     {
         if (n == NULL)
@@ -259,7 +258,7 @@ int main()
     LL.printListReverse();
     cout << endl;
     cout << "The sum: " << LL.sumOfList() << endl;
-    LL.checkOddpostion();
+    //LL.checkOddpostion();
     // Complete the printListReverse(Node *n) function
     // Complete the sumOfList(Node *n) function
     // Test these two functions in the main function
