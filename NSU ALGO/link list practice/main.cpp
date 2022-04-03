@@ -175,6 +175,7 @@ public:
             {
                 current = current->next;
             }
+            
             Node *n = new Node;
             n->data = data;
             n->next = current->next;
