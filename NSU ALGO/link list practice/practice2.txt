@@ -1,0 +1,26 @@
+Linked List Practice Problems:
+
+... = Write a function that
+
+1. ... checks if the elements in a linked list are sorted (in ascending order) or not.
+2. ... deletes the first occurrence of a node with a specific value.
+3. ... deletes all occurrences of nodes with a specific value.
+4. ... sorts the values in a linked list.
+5. ... reverses a linked list.
+6. ... deletes every single node of a list.
+7. ... checks if a linked list is empty or not.
+8. ... returns the average value of all the nodes.
+9. ... only prints the nodes at odd positions/index. (first nodes index is 0)
+10. ... checks if the list contains duplicate value or not.
+11. ... checks if a value exists in the list or not.
+12. ... returns the length of the list.
+
+I'll show these two
+6. ... creates a copy of a linked list and returns the head of the new list.
+7. ... takes two linked lists and connects the second list at the end of the first list to create a single list.
+
+Homework
+14. Implement the Stack data structure using linked list. (isEmpty(), push(), pop(), top())
+15. Implement the Queue data structure using linked list. (isEmpty(), enqueue(), dequeue())
+
+16. Create a circular linked list. Write a function for adding nodes at the beginning and end of the list. Also write a function that prints the list n times (printList(int n)) using a single loop.
