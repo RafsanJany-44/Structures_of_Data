@@ -11,8 +11,6 @@ struct Node
 class BinarySearchTree{
     private:
         Node* root;
-        int index=0;
-
         void insertNode(Node *&tree, int data){
             if(tree == NULL){
                 tree = new Node;
