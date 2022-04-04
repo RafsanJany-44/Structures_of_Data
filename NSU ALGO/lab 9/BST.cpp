@@ -47,12 +47,10 @@ class BinarySearchTree{
             
             fiveTOten(tree->right);
         }
-
         void oddNode(Node *tree){
             if(tree == NULL){
                 return;
             }
-
             oddNode(tree->left);
             if (tree->data%2!=0){
             cout << tree->data << ", ";
@@ -60,7 +58,6 @@ class BinarySearchTree{
             
             oddNode(tree->right);
         }
-
         int treeLength(Node *tree){
             if(tree==NULL){
                 return 0;
