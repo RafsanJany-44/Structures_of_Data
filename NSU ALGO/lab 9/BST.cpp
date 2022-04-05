@@ -169,16 +169,18 @@ private:
         }
 
         void rafsan(Node *tree){
-            index+=1;
+            
             if(tree==NULL){
                 index=0;
                 return;
             }
             rafsan(tree->left);
+            this->index+=1;
             if (index%2==0){
             cout << tree->data << ", ";
-            cout<<"()"<<index;
+            cout<<"()"<<index<<this->index;
             }
+            
             rafsan(tree->right);
         }
 public:
