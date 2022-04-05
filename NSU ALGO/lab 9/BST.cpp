@@ -177,6 +177,7 @@ private:
             rafsan(tree->left);
             if (index%2==0){
             cout << tree->data << ", ";
+            cout<<"()"<<index;
             }
             rafsan(tree->right);
         }
@@ -268,6 +269,7 @@ int main(){
     cout<<"Print odd nodes:"<<endl;
     bst.oddNode();
     cout<<endl;
+    cout<<"---------------------------"<<endl;
     bst.rafsan();
 
 }
