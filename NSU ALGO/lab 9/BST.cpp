@@ -167,6 +167,10 @@ class BinarySearchTree{
             return 1+countNodes(tree->left)+countNodes(tree->right);
         }
 
+        void rafsan(Node *tree){
+            cout<<countNodes(tree);
+        }
+
     public:
         BinarySearchTree(){
             root = NULL;
@@ -198,9 +202,7 @@ class BinarySearchTree{
         bool findNode(int data){
             return findNode(root,data);
         }
-
         
-
         void deleteNode(int data){
             deleteNode(root,data);
         }
@@ -233,6 +235,9 @@ class BinarySearchTree{
         int countNodes(){
             return countNodes(root);
         }
+        void rafsan(){
+            return rafsan(root);
+        }
 };
 
 
@@ -252,5 +257,6 @@ int main(){
     cout<<endl;
     cout<<"Print odd nodes:"<<endl;
     bst.oddNode();
+    bst.rafsan();
 
 }
