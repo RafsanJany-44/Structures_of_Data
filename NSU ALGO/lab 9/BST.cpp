@@ -251,12 +251,14 @@ int main(){
     bst.insertNode(3);
     bst.insertNode(6);
 
-    //bst.printInOrder();
+    bst.printInOrder();
+    cout<<endl;
     cout<<"Print five to ten:"<<endl;
     bst.fiveTOten();
     cout<<endl;
     cout<<"Print odd nodes:"<<endl;
     bst.oddNode();
+    cout<<endl;
     bst.rafsan();
 
 }
