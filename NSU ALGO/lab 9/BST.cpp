@@ -179,11 +179,11 @@ class BinarySearchTree{
         }
 
         void fiveTOten(){
-             fiveTOten(root);
+            fiveTOten(root);
         }
 
-         void oddNode(){
-             oddNode(root);
+        void oddNode(){
+            oddNode(root);
          }
 
         int treeLength(){
