@@ -184,7 +184,7 @@ class BinarySearchTree{
 
         void oddNode(){
             oddNode(root);
-         }
+        }
 
         int treeLength(){
             treeLength(root);
