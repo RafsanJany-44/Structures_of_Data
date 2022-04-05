@@ -9,7 +9,8 @@ struct Node
 };
 
 class BinarySearchTree{
-    private:
+
+private:
         Node* root;
         int index = 0;
         void insertNode(Node *&tree, int data){
@@ -168,10 +169,18 @@ class BinarySearchTree{
         }
 
         void rafsan(Node *tree){
-            cout<<countNodes(tree);
+            index+=1;
+            if(tree==NULL){
+                index=0;
+                return;
+            }
+            rafsan(tree->left);
+            if (index%2==0){
+            cout << tree->data << ", ";
+            }
+            rafsan(tree->right);
         }
-
-    public:
+public:
         BinarySearchTree(){
             root = NULL;
         }
