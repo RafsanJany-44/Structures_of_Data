@@ -145,8 +145,15 @@ class BinarySearchTree{
         }
 
         int countLeaves(Node* tree){
-
+            if(tree == NULL)    
+                return 0;
+            if(tree->left == NULL && tree->right == NULL)
+                return 1;        
+            else
+                return countLeaves(tree->left)+
+            countLeaves(tree->right);
         }
+        
 
         int sumofAllNodes(Node* tree){
             if (tree == NULL)
@@ -233,6 +240,9 @@ int main(){
     bst.insertNode(6);
 
     bst.printInOrder();
+    cout<<endl;
+    cout<<"Total leaves nods:";
+    cout<<bst.countLeaves();
     cout<<endl;
     cout<<"Sum of all node:";
     cout<<bst.sumofAllNodes();
