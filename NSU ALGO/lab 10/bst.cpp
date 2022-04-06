@@ -243,7 +243,9 @@ int main(){
     cout<<endl;
     cout<<"Total leaves nods:";
     cout<<bst.countLeaves();
+
     cout<<endl;
+    
     cout<<"Sum of all node:";
     cout<<bst.sumofAllNodes();
 
