@@ -122,7 +122,7 @@ class BinarySearchTree{
             delete tree;
             tree = NULL;
         }
-
+        //function to get height of tree
         int getHeight(Node *tree){
             if(tree == NULL){
                 return 0;
