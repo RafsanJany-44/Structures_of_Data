@@ -136,7 +136,7 @@ class BinarySearchTree{
                 return rsh;
             }
         }
-
+        //function count every node
         int countNodes(Node *tree){
             if(tree==NULL){
                 return 0;
