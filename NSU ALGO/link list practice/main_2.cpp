@@ -41,11 +41,20 @@ public:
 
     void printNode(){
         Node *current=head;
-        while(current->next==NULL){
-            cout<<current->data<<"-> ";
+        while(current!=NULL){
+            cout << current->data<<"-> ";
             current=current->next;
         }
         cout<<endl;
     }
 
 };
+
+int main(){
+    LinkedList l;
+    l.addNodeAtEnd(5);
+    l.addNodeAtEnd(4);
+    l.addNodeAtEnd(3);
+    l.printNode();
+    
+}
