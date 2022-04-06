@@ -28,6 +28,14 @@ public:
         if(head==NULL){//if there is no head then the n will be the first head
             head=n;
         }
+
+        else{
+            Node *current=head; //seting the head node to a current node
+            while(current->next!=NULL){// travarsing all node to the last one
+                current=current->next;
+            }
+            current->next=n;//at the last node adding the node newly created
+        }
     }
     
 
