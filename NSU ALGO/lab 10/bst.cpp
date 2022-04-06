@@ -143,7 +143,7 @@ class BinarySearchTree{
             }
             return 1+countNodes(tree->left)+countNodes(tree->right);
         }
-
+        //function to count leaves
         int countLeaves(Node* tree){
             if(tree == NULL)    
                 return 0;
@@ -154,7 +154,7 @@ class BinarySearchTree{
             countLeaves(tree->right);
         }
         
-
+        //functions to find sum of all node
         int sumofAllNodes(Node* tree){
             if (tree == NULL)
                 return 0;
