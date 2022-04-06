@@ -1,0 +1,26 @@
+Binary Search Tree Practice Problems:
+
+... = Write a function that
+
+1. ... checks if a BST is balanced or not.
+2. ... checks if a BST is full or not.
+3. ... checks if a BST is complete or not.
+4. ... returns the number of leaf nodes in a BST.
+5. ... returns the number of nodes with 1 child node.
+6. ... returns the number of nodes with two children nodes.
+7. ... deletes every single node from a BST.
+8. ... returns the average node value of a BST.
+9. ... prints a BST in in-order sequence.
+10. ... prints a BST in pre-order sequence.
+11. ... prints a BST in post-order sequence.
+12. ... prints the path from root to a node.
+13. ... returns the parent's value of a node.
+14. ... returns the sibling's value of a node (if sibling exists).
+15. ... prints all the nodes at a specific level.
+16. ... prints the largest node at a specific level.
+17. ... returns the level of a specific node.
+18. ... returns the smallest value in the tree.
+19. ... returns the largest value in the tree.
+20. ... returns the number of nodes in a specific level.
+
+* If you don't understand any term that is used above, please ask me or google it yourself.
