@@ -18,7 +18,12 @@ public:
     }
 
     void addNodeAtEnd(int data){
-        
+        Node *n=new Node;
+        n->data=data;
+        n->next=NULL;
+        if(head==NULL){
+            head=n;
+        }
     }
     
 
