@@ -250,4 +250,3 @@ int main(){
     cout<<bst.sumofAllNodes();
 
 }
-
