@@ -43,19 +43,3 @@ public:
 
 };
 
-void insert(int data){
-    Node *n= new Node;
-    n->data=data;
-    n->next=NULL;
-    if (head==NULL){
-        head=n;
-    }
-    else{
-        Node *current=head;
-        while(head->next!=NULL){
-            current=cuurent->next
-        }
-        current-next=n;
-    }
-
-}
