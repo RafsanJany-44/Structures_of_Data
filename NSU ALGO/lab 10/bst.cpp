@@ -241,11 +241,12 @@ int main(){
 
     bst.printInOrder();
     cout<<endl;
+    //total leaves number
     cout<<"Total leaves nods:";
     cout<<bst.countLeaves();
 
     cout<<endl;
-    
+    // sum of all nodes
     cout<<"Sum of all node:";
     cout<<bst.sumofAllNodes();
 
