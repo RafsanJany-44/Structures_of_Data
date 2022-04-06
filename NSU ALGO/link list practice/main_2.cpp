@@ -39,6 +39,13 @@ public:
     } 
     
 
-
+    void printNode(){
+        Node *current=head;
+        while(current->next==NULL){
+            cout<<current->data<<"-> ";
+            current=current->next;
+        }
+        cout<<endl;
+    }
 
 };
