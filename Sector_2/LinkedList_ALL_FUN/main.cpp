@@ -125,17 +125,18 @@ public:
 
     int get(int index){
         if(head==NULL){
-            return NULL;
+            cout<<"List is empty!"<<endl;
         }
-        int i=0;
+        int i=0; 
         Node *current = head;
-        while(current!=NULL){
+        while(current->next!=NULL){
             if(i==index){
-                return current->data;
+            return current->data;
             }
             current = current->next;
             i++;
         }
+        cout<<"Index out of range"<<endl;
     }
 
 };
@@ -163,7 +164,7 @@ int main(){
     l.deleteNodeAt(5);
     l.printAllNode();*/
     cout<<"Showing the ith index: ";
-    cout<<l.get(2);
+    l.get(6);
     //l.printAllNode();
     
     
