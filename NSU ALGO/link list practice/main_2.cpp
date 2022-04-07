@@ -37,6 +37,18 @@ public:
             current->next=n;//at the last node adding the node newly created
         }
     }
+
+    void addNodeAtEnd(int data){
+        Node_1 *n= new Node_1;
+        n->data=data;
+        n->next=NULL;
+        if (head==NULL){
+            head=n;
+        }
+        else{
+            n->next=head;
+        }
+    }
     
     
 
