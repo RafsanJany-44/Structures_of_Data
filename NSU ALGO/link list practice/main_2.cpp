@@ -53,12 +53,17 @@ public:
             head=n;
             return;
         }
+        if(position==1){
+            addNodeAtFront(data);
+            return;
+        }
 
         Node *current=head;
-        for(int i=0;i<=position;i++){
-            current=current->next;
+        for(int i=1;i<=position-2;i++){
+            cout<<current->data<<endl;
+            current=current->next;   
         }
-        n->next=current->next->next;
+        n->next=current->next;
         current->next=n;
         
         
@@ -81,9 +86,14 @@ int main(){
     LinkedList l;
     l.addNodeAtEnd(5);
     l.addNodeAtEnd(4);
-    l.addNodeAtEnd(3);
+    
     l.addNodeAtFront(6);
-    l.insertNodeAt(8,2);
+    l.addNodeAtFront(3);
+    cout<<"Current :";
     l.printNode();
+    l.insertNodeAt(8,1);
+    cout<<"After :";
+    l.printNode();
+    
     
 }
