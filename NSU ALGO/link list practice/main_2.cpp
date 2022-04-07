@@ -44,6 +44,25 @@ public:
         n->next=head;
         head=n;
     }
+
+    void insertNodeAt(int data,int position){
+        Node *n=new Node;
+        n->data=data;
+        n->next=NULL;
+        if(head==NULL){
+            head=n;
+            return;
+        }
+
+        Node *current=head;
+        for(int i=0;i<=position;i++){
+            current=current->next;
+        }
+        n->next=current->next->next;
+        current->next=n;
+        
+        
+    }
     
     
 
@@ -64,6 +83,7 @@ int main(){
     l.addNodeAtEnd(4);
     l.addNodeAtEnd(3);
     l.addNodeAtFront(6);
+    l.insertNodeAt(8,2);
     l.printNode();
     
 }
