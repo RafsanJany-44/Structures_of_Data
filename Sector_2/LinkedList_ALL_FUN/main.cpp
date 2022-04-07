@@ -123,7 +123,20 @@ public:
         cout<<endl;
     }
 
-    int 
+    int get(int index){
+        if(head==NULL){
+            return NULL;
+        }
+        int i=0;
+        Node *current = head;
+        while(current!=NULL){
+            if(i==index){
+                return current->data;
+            }
+            current = current->next;
+            i++;
+        }
+    }
 
 };
 
@@ -145,10 +158,13 @@ int main(){
     l.printAllNode();
     cout<<"After deleting the last node: ";
     l.deleteLastNode();
-    l.printAllNode();*/
+    l.printAllNode();
     cout<<"After deleting the ith node: ";
     l.deleteNodeAt(5);
-    l.printAllNode();
+    l.printAllNode();*/
+    cout<<"Showing the ith index: ";
+    cout<<l.get(2);
+    //l.printAllNode();
     
     
 }
