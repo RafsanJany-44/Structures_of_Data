@@ -75,7 +75,7 @@ public:
         }
         Node *current=head; //if we do not this line the the memry will be allocated with previous head
         head=head->next;
-        delete head;
+        delete current;
     }
     
     
