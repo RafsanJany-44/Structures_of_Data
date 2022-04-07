@@ -6,6 +6,12 @@ struct Node_1{
     Node_1 *next;
 };
 
+struct Node_2{
+    int data;
+    Node_2 *right;
+    Node_2 *left;
+};
+
 class LinkedList{
 private:
     Node_1 *head;
@@ -17,7 +23,7 @@ public:
         head= NULL;
     }
 
-    void addNodeAtEnd(int data){
+    void addNodeAtEnd_1(int data){
         
         //creating a new node
         Node_1 *n=new Node_1;
@@ -52,9 +58,9 @@ public:
 
 int main(){
     LinkedList l;
-    l.addNodeAtEnd(5);
-    l.addNodeAtEnd(4);
-    l.addNodeAtEnd(3);
+    l.addNodeAtEnd_1(5);
+    l.addNodeAtEnd_1(4);
+    l.addNodeAtEnd_1(3);
     l.printNode();
     
 }
