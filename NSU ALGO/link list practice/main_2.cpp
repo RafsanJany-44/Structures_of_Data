@@ -75,7 +75,7 @@ public:
         }
         Node *current=head; //if we do not this line the the memry will be allocated with previous head
         head=head->next;
-        delete current;
+        delete current; // delete key word takes a address and deete. the head,current,head->next are addrees.
     }
 
     void deleteLastNode(){
@@ -83,7 +83,12 @@ public:
             return;
         }
         Node *current=head;
-        
+
+        while(current->next->next!=NULL){//hare two next used to stop the while loop before the last node
+            current=current->next;
+        }
+        delete current->next; 
+        current->next=NULL;
 
     }
     
@@ -115,6 +120,9 @@ int main(){
 
     cout<<"After deleting the first node: ";
     l.deleteFirstNode();
+    l.printNode();
+    cout<<"After deleting the last node: ";
+    l.deleteLastNode();
     l.printNode();
     
     
