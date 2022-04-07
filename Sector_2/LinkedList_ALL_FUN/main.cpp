@@ -111,16 +111,16 @@ public:
         current->next=current->next->next;
         delete temp;
     }
-    
-    
 
-    void printAllNode(){
+    int len(){
+        
+        int index=0;
         Node *current=head;
         while(current!=NULL){
-            cout << current->data<<"-> ";
             current=current->next;
+            index++;
         }
-        cout<<endl;
+        return index;
     }
 
     int get(int index){
@@ -138,6 +138,19 @@ public:
         }
         cout<<"Index out of range, Garbage=";
     }
+    
+
+    void printAllNode(){
+        Node *current=head;
+        while(current!=NULL){
+            cout << current->data<<"-> ";
+            current=current->next;
+        }
+        cout<<endl;
+    }
+
+    
+    
 
 };
 
@@ -162,10 +175,11 @@ int main(){
     l.printAllNode();
     cout<<"After deleting the ith node: ";
     l.deleteNodeAt(5);
-    l.printAllNode();*/
+    l.printAllNode();
     cout<<"Showing the ith index: ";
     cout<<l.get(3);
-    //l.printAllNode();
+    l.printAllNode();*/
+    cout<<l.len();
     
     
 }
