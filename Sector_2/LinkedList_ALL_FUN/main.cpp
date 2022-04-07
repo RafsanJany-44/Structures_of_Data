@@ -127,6 +127,11 @@ public:
         if(head==NULL){
             cout<<"List is empty!"<<endl;
         }
+
+        if(index<0){
+            int  len=this->len();
+            index=len-index;
+        }
         int i=0; 
         Node *current = head;
         while(current->next!=NULL){
@@ -179,7 +184,7 @@ int main(){
     cout<<"Showing the ith index: ";
     cout<<l.get(3);
     l.printAllNode();*/
-    cout<<l.len();
+    cout<<l.get(-2);
     
     
 }
