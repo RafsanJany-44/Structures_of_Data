@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-struct Node_1{
+struct Node{
     int data;
-    Node_1 *next;
+    Node *next;
 };
 
 class LinkedList{
 private:
-    Node_1 *head;
+    Node *head;
 
 public:
 
@@ -20,7 +20,7 @@ public:
     void addNodeAtEnd(int data){
         
         //creating a new node
-        Node_1 *n=new Node_1;
+        Node *n=new Node;
         n->data=data;
         n->next=NULL;
         // n node has been created
@@ -30,7 +30,7 @@ public:
         }
 
         else{
-            Node_1 *current=head; //seting the head node to a current node
+            Node *current=head; //seting the head node to a current node
             while(current->next!=NULL){// travarsing all node to the last one
                 current=current->next;
             }
@@ -39,7 +39,7 @@ public:
     }
 
     void addNodeAtFront(int data){
-        Node_1 *n=new Node_1;
+        Node *n=new Node;
         n->data=data;
         n->next=head;
         head=n;
@@ -48,7 +48,7 @@ public:
     
 
     void printNode(){
-        Node_1 *current=head;
+        Node *current=head;
         while(current!=NULL){
             cout << current->data<<"-> ";
             current=current->next;
