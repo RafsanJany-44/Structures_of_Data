@@ -93,7 +93,9 @@ public:
 
     void deleteAt(int index){
         if(head==NULL){return;}
-        if(index=1){deleteFirstNode();}
+
+        if(index==1){deleteFirstNode();}
+
         Node *current=head;
         for(int i=1;i<index-1;i++){
             current=current->next;
@@ -136,7 +138,7 @@ int main(){
     l.deleteLastNode();
     l.printNode();*/
     cout<<"After deleting the ith node: ";
-    l.deleteAt(4);
+    l.deleteAt(5);
     l.printNode();
     
     
