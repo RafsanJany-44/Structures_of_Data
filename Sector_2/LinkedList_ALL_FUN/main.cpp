@@ -136,7 +136,7 @@ public:
             current = current->next;
             i++;
         }
-        cout<<"Index out of range"<<endl;
+        cout<<"Index out of range, Garbage=";
     }
 
 };
@@ -164,7 +164,7 @@ int main(){
     l.deleteNodeAt(5);
     l.printAllNode();*/
     cout<<"Showing the ith index: ";
-    l.get(6);
+    cout<<l.get(3);
     //l.printAllNode();
     
     
