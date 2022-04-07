@@ -77,6 +77,15 @@ public:
         head=head->next;
         delete current;
     }
+
+    void deleteLastNode(){
+        if (head==NULL){
+            return;
+        }
+        Node *current=head;
+        
+
+    }
     
     
 
