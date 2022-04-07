@@ -59,7 +59,7 @@ public:
         }
 
         Node *current=head;
-        for(int i=1;i<=position-2;i++){
+        for(int i=1;i<position-1;i++){
             cout<<current->data<<endl;
             current=current->next;   
         }
@@ -67,6 +67,15 @@ public:
         current->next=n;
         
         
+    }
+
+    void deleteFirstNode(){
+        if (head==NULL){
+            return;
+        }
+        Node *current=head;
+        head=current->next;
+        delete head;
     }
     
     
@@ -91,8 +100,12 @@ int main(){
     l.addNodeAtFront(3);
     cout<<"Current :";
     l.printNode();
-    l.insertNodeAt(8,1);
+    l.insertNodeAt(8,3);
     cout<<"After :";
+    l.printNode();
+
+    cout<<"After deleting the first node: ";
+    l.deleteFirstNode();
     l.printNode();
     
     
