@@ -91,7 +91,7 @@ public:
 
     }
 
-    void deleteAt(int index){
+    void deleteNodeAt(int index){
         if(head==NULL){return;}
 
         if(index==1){deleteFirstNode();}
@@ -107,7 +107,7 @@ public:
     
     
 
-    void printNode(){
+    void printAllNode(){
         Node *current=head;
         while(current!=NULL){
             cout << current->data<<"-> ";
@@ -126,20 +126,20 @@ int main(){
     l.addNodeAtFront(6);
     l.addNodeAtFront(3);
     cout<<"Current :";
-    l.printNode();
+    l.printAllNode();
     l.insertNodeAt(8,3);
     cout<<"After :";
-    l.printNode();
+    l.printAllNode();
 
     /* cout<<"After deleting the first node: ";
     l.deleteFirstNode();
-    l.printNode();
+    l.printAllNode();
     cout<<"After deleting the last node: ";
     l.deleteLastNode();
-    l.printNode();*/
+    l.printAllNode();*/
     cout<<"After deleting the ith node: ";
-    l.deleteAt(5);
-    l.printNode();
+    l.deleteNodeAt(5);
+    l.printAllNode();
     
     
 }
