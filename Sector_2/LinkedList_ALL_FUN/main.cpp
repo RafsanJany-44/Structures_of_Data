@@ -45,6 +45,13 @@ public:
         head=n;
     }
 
+    void append(int data){
+        Node *n=new Node;
+        n->data=data;
+        n->next=head;
+        head=n; 
+    }
+
     void insertNodeAt(int data,int position){
         Node *n=new Node;
         n->data=data;
