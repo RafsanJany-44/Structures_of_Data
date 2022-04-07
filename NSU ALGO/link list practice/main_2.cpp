@@ -38,7 +38,7 @@ public:
         }
     }
 
-    void addNodeAtEnd(int data){
+    void addNodeAtFront(int data){
         Node_1 *n= new Node_1;
         n->data=data;
         n->next=NULL;
@@ -68,6 +68,7 @@ int main(){
     l.addNodeAtEnd(5);
     l.addNodeAtEnd(4);
     l.addNodeAtEnd(3);
+    l.addNodeAtFront(6);
     l.printNode();
     
 }
