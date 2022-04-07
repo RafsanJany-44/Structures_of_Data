@@ -60,7 +60,6 @@ public:
 
         Node *current=head;
         for(int i=1;i<position-1;i++){
-            cout<<current->data<<endl;
             current=current->next;   
         }
         n->next=current->next;
@@ -91,6 +90,18 @@ public:
         current->next=NULL;
 
     }
+
+    void deleteAt(int index){
+        if(head==NULL){return;}
+        if(index=1){deleteFirstNode();}
+        Node *current=head;
+        for(int i=1;i<index-1;i++){
+            current=current->next;
+        }
+        Node *temp=current->next;
+        current->next=current->next->next;
+        delete temp;
+    }
     
     
 
@@ -118,11 +129,14 @@ int main(){
     cout<<"After :";
     l.printNode();
 
-    cout<<"After deleting the first node: ";
+   /* cout<<"After deleting the first node: ";
     l.deleteFirstNode();
     l.printNode();
     cout<<"After deleting the last node: ";
     l.deleteLastNode();
+    l.printNode();*/
+    cout<<"After deleting the ith node: ";
+    l.deleteAt(4);
     l.printNode();
     
     
