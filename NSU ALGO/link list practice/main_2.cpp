@@ -42,12 +42,13 @@ public:
         Node_1 *n= new Node_1;
         n->data=data;
         n->next=NULL;
-        if (head==NULL){
+        /*if (head==NULL){
+            n->next=NULL;
             head=n;
         }
         else{
             n->next=head;
-        }
+        }*/
     }
     
     
