@@ -1,5 +1,13 @@
 #include <iostream>
 using namespace std;
+// void addNodeAtEnd(int data)
+//void addNodeAtFront(int data)
+//void append(int data)
+//void deleteFirstNode()
+//void deleteLastNode()
+//void len()
+//void get(int)
+//void insertNodeAt(int data,int index)
 
 struct Node{
     int data;
@@ -186,6 +194,10 @@ int main(){
     l.printAllNode();*/
     cout<<l.get(-2);
     cout<<l.len();
+
+    for(int i=0;i<l.len();i++){
+        cout<<l.get(i)<<endl;
+    }
     
     
 }
