@@ -1,3 +1,5 @@
+// I try to make linklist to use as a array or list..
+
 #include <iostream>
 using namespace std;
 // void addNodeAtEnd(int data)
@@ -9,6 +11,7 @@ using namespace std;
 //void get(int)
 //void insertNodeAt(int data,int index)
 //int index(int data)
+
 
 struct Node{
     int data;
