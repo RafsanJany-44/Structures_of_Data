@@ -156,7 +156,16 @@ public:
         if(head==NULL){
             cout<<"List is empty!"<<endl;
         }
-
+        Node* current = head;
+        int i=0;
+        while(current!=NULL){
+            if(current->data==data){
+                return i;
+            }
+            i++;
+            current=current->next;
+        }
+        cout<<"No Item Found, Garbage=";
     }
     
 
@@ -207,6 +216,7 @@ int main(){
         cout<<i<<","<<l.get(i)<<endl;
 
     }
+    cout <<l.index(7);
     
     
 }
