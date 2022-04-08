@@ -178,6 +178,7 @@ public:
         }
         cout<<endl;
     }
+}
 
 int main(){
     LinkedList l;
