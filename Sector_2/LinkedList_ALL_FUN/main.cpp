@@ -213,5 +213,6 @@ int main(){
         cout<<l.get(i)<<endl;
 
     }*/
-    cout <<l.index(9);
+   // cout <<l.index(9);
+   
 }
