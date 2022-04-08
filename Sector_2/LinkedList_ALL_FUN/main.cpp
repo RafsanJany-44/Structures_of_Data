@@ -151,6 +151,13 @@ public:
         }
         cout<<"Index out of range, Garbage=";
     }
+
+    int index(int data){
+        if(head==NULL){
+            cout<<"List is empty!"<<endl;
+        }
+
+    }
     
 
     void printAllNode(){
