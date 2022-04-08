@@ -8,6 +8,7 @@ using namespace std;
 //void len()
 //void get(int)
 //void insertNodeAt(int data,int index)
+//int index(int data)
 
 struct Node{
     int data;
