@@ -214,5 +214,5 @@ int main(){
 
     }*/
    // cout <<l.index(9);
-   
+   cout<<l.get(-5);
 }
