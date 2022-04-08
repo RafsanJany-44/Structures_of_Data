@@ -142,7 +142,7 @@ public:
         }
         int i=0; 
         Node *current = head;
-        while(current->next!=NULL){
+        while(current!=NULL){
             if(i==index){
             return current->data;
             }
@@ -192,13 +192,13 @@ int main(){
     cout<<"Showing the ith index: ";
     cout<<l.get(3);
     l.printAllNode();*/
-    cout<<l.get(5);
+    cout<<l.get(4);
    // cout<<l.len();
     cout<<endl;
-    for(int i=0;i<l.len();i++){
-        cout<<i<<","<<l.get(i)<<endl;
+    //for(int i=0;i<l.len();i++){
+      //  cout<<i<<","<<l.get(i)<<endl;
 
-    }
+    //}
     
     
 }
