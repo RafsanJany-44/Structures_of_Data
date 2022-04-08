@@ -213,6 +213,4 @@ int main(){
 
     }
     cout <<l.index(7);
-    
-    
 }
