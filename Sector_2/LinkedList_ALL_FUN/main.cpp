@@ -178,7 +178,7 @@ public:
         }
         cout<<endl;
     }
-}
+};
 
 int main(){
     LinkedList l;
@@ -210,7 +210,7 @@ int main(){
    // cout<<l.len();
     cout<<endl;
     for(int i=0;i<l.len();i++){
-        cout<<i<<","<<l.get(i)<<endl;
+        cout<<l.get(i)<<endl;
 
     }
     cout <<l.index(7);
