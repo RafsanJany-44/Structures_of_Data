@@ -171,7 +171,8 @@ int main(){
     LinkedList l;
     l.addNodeAtEnd(5);
     l.addNodeAtEnd(4);
-    
+    l.append(9);
+    l.append(7);
     l.addNodeAtFront(6);
     l.addNodeAtFront(3);
     cout<<"Current :";
@@ -192,13 +193,13 @@ int main(){
     cout<<"Showing the ith index: ";
     cout<<l.get(3);
     l.printAllNode();*/
-    cout<<l.get(4);
+    cout<<l.get(5);
    // cout<<l.len();
     cout<<endl;
-    //for(int i=0;i<l.len();i++){
-      //  cout<<i<<","<<l.get(i)<<endl;
+    for(int i=0;i<l.len();i++){
+        cout<<i<<","<<l.get(i)<<endl;
 
-    //}
+    }
     
     
 }
