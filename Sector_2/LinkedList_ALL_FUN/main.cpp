@@ -185,6 +185,7 @@ int main(){
     cout<<l.get(3);
     l.printAllNode();*/
     cout<<l.get(-2);
+    cout<<l.len();
     
     
 }
