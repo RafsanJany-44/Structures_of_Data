@@ -130,7 +130,7 @@ public:
 
         if(index<0){
             int  len=this->len();
-            index=len-index;
+            index=len+index;
         }
         int i=0; 
         Node *current = head;
