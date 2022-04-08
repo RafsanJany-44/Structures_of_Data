@@ -206,12 +206,12 @@ int main(){
     cout<<"Showing the ith index: ";
     cout<<l.get(3);
     l.printAllNode();*/
-    cout<<l.get(5);
+    //cout<<l.get(5);
    // cout<<l.len();
     cout<<endl;
-    for(int i=0;i<l.len();i++){
+    /*for(int i=0;i<l.len();i++){
         cout<<l.get(i)<<endl;
 
-    }
-    cout <<l.index(7);
+    }*/
+    cout <<l.index(9);
 }
