@@ -147,25 +147,41 @@ class BinarySearchTree{
 
         bool isBalanced(Node *tree)
         {
-            int lh; /* for height of left subtree */
-            int rh; /* for height of right subtree */
-        
-            /* If tree is empty then return true */
-            if (root == NULL)
-                return 1;
+            if (tree == NULL){
+                return false;
+            }
+
+            int left_height; /* for height of left subtree */
+            int right_height; /* for height of right subtree */
+            
         
             /* Get the height of left and right sub trees */
-            lh = getHeight(root->left);
-            rh = getHeight(root->right);
+            left_height = getHeight(root->left);
+            right_height = getHeight(root->right);
         
-            if (abs(lh - rh) <= 1 && isBalanced(root->left) && isBalanced(root->right))
+            if (abs(left_height - right_height) <= 1 && isBalanced(root->left) && isBalanced(root->right)){
                 return true;
+            }
         
             /* If we reach here then
             tree is not height-balanced */
             return false;
         }
 
+        bool isFullBinaryTree(Node *tree) 
+        {
+            if (tree == NULL) {
+                return false;
+            }
+            if (tree -> left == NULL and tree -> right == NULL) {
+                return true;
+            } else if (tree -> left!=NULL and tree -> right!=NULL) {
+                return (isFullBinaryTree(tree -> left) and isFullBinaryTree(tree -> right));
+            }
+            return false;
+            }
+
+           
     public:
         BinarySearchTree(){
             root = NULL;
@@ -225,6 +241,12 @@ class BinarySearchTree{
        bool isBalanced(){
            return isBalanced(root);
        }
+
+       bool isFullBinaryTree(){
+           return isFullBinaryTree(root);
+       }
+
+    
 };
 
 
