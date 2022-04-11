@@ -144,7 +144,7 @@ class BinarySearchTree{
             return 1+countNodes(tree->left)+countNodes(tree->right);
         }
 
-        int getLevel(Node *tree, int data, int level)
+        /*int getLevel(Node *tree, int data, int level)
         {
             if (tree == NULL)
                 return -1;
@@ -158,7 +158,7 @@ class BinarySearchTree{
         
             downlevel = getLevel(tree->right, data, level + 1);
             return downlevel;
-        }
+        }*/
 
     public:
         BinarySearchTree(){
@@ -217,9 +217,9 @@ class BinarySearchTree{
             return countNodes(root);
         }
 
-        int getLevel(int node){
-            return getLevel(root,node,1);
-        }
+       // int getLevel(int node){
+        //    return getLevel(root,node,1);
+        //}
 };
 
 
