@@ -160,6 +160,25 @@ class BinarySearchTree{
             return downlevel;
         }
 
+        bool printPredecessor(Node *tree, int data)
+        {
+        
+        if (tree == NULL)
+            return false;
+        
+        if (tree->data == data)
+            return true;
+        
+        if ( printAncestors(tree->left, data) ||
+            printAncestors(tree->right, data) )
+        {
+            cout << tree->data << " ";
+            return true;
+        }
+        
+        return false;
+        }
+
     public:
         BinarySearchTree(){
             root = NULL;
