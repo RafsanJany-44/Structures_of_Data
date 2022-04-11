@@ -144,19 +144,19 @@ class BinarySearchTree{
             return 1+countNodes(tree->left)+countNodes(tree->right);
         }
 
-        int getLevel(Node *tree, int data, int level)
+        int getLevel(Node *tree, int data, int l)
         {
             if (tree == NULL)
                 return -1;
         
             if (tree -> data == data)
-                return level;
+                return l;
         
-            int downlevel = getLevel(tree -> left,data, level + 1);
+            int downlevel = getLevel(tree -> left,data, l + 1);
             if (downlevel != 0)
                 return downlevel;
         
-            downlevel = getLevel(tree->right, data, level + 1);
+            downlevel = getLevel(tree->right, data, l + 1);
             return downlevel;
         }
 
