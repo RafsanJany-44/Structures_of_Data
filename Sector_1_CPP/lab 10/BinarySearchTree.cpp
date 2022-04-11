@@ -169,8 +169,8 @@ class BinarySearchTree{
         if (tree->data == data)
             return true;
         
-        if ( printAncestors(tree->left, data) ||
-            printAncestors(tree->right, data) )
+        if ( printPredecessor(tree->left, data) ||
+            printPredecessor(tree->right, data) )
         {
             cout << tree->data << " ";
             return true;
@@ -239,6 +239,9 @@ class BinarySearchTree{
         int getLevel(int node){
             return getLevel(root,node,1);
         }
+        bool printPredecessor(int data){
+            return printPredecessor(root ,data);
+        }
 };
 
 
@@ -261,6 +264,11 @@ int main(){
     int node2=2;
     cout<<"The level of "<<node2<<" is :";
     cout<<bst.getLevel(node2);
+    cout<<endl;
+
+    int node3=1;
+    cout<<"The Predecessor of "<<node3<<" is: ";
+    bst.printPredecessor(node3);
 
     
 
