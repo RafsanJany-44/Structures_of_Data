@@ -259,9 +259,9 @@ int main(){
     bst.insertNode(8);
     bst.insertNode(3);
     bst.insertNode(6);
-
+    bst.insertNode(1);
     bst.printInOrder();
-   bst.checkDup();
+    cout<<bst.checkDup();
 
 }
 
