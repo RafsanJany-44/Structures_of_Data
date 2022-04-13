@@ -164,6 +164,29 @@ class BinarySearchTree{
             checkDup(root->right, s);
         }*/
 
+        bool checking(Node* parent, int val) {
+            if(parent == nullptr)   // point 1
+                return false;
+            if (val == parent->data){   // point 2
+                return true;
+            }
+            else{
+                bool left = checking(parent->left, val);
+                bool right = checking(parent->right, val);
+                return left||right;
+            }
+        }
+        bool checkDup(Node* parent) {
+        if (parent != nullptr) {   
+            if(checking(parent->left, parent->data)) return true; 
+            if(checking(parent->right, parent->data)) return true;
+            return checkDup(parent->left)||checkDup(parent->right);  
+        }
+        else return false;
+    }
+
+
+
     public:
         BinarySearchTree(){
             root = NULL;
@@ -220,11 +243,10 @@ class BinarySearchTree{
         int countNodes(){
             return countNodes(root);
         }
-       /* bool checkDup(struct Node* root)
+        bool checkDup()
         {
-            unordered_set<int> s;
-            return checkDup(root, s);
-        }*/
+            return checkDup(root);
+        }
 };
 
 
@@ -239,7 +261,7 @@ int main(){
     bst.insertNode(6);
 
     bst.printInOrder();
-   // bst.checkDup();
+   bst.checkDup();
 
 }
 
