@@ -1,3 +1,4 @@
+#include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
 
@@ -144,6 +145,26 @@ class BinarySearchTree{
             return 1+countNodes(tree->left)+countNodes(tree->right);
         }
 
+        bool checkDup(Node* root, unordered_set<int> &s)
+        {
+        // If tree is empty, there are no
+        // duplicates.
+        if (root == NULL)
+        return false;
+    
+        // If current node's data is already present.
+        if (s.find(root->data) != s.end())
+        return true;
+    
+        // Insert current node
+        s.insert(root->data);
+        
+        // Recursively check in left and right
+        // subtrees.
+        return checkDup(root->left, s) ||
+            checkDup(root->right, s);
+        }
+
     public:
         BinarySearchTree(){
             root = NULL;
@@ -200,6 +221,11 @@ class BinarySearchTree{
         int countNodes(){
             return countNodes(root);
         }
+        bool checkDup(struct Node* root)
+        {
+            unordered_set<int> s;
+            return checkDup(root, s);
+        }
 };
 
 
@@ -214,6 +240,7 @@ int main(){
     bst.insertNode(6);
 
     bst.printInOrder();
+    bst.checkDup();
 
 }
 
