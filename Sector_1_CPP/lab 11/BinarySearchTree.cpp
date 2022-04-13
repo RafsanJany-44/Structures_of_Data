@@ -245,6 +245,7 @@ int main(){
     bst.printInOrder();
     cout<<endl;
     if(bst.checkDuplicate()==1){
+        
         cout<<"The tree has duplicate values!!"<<endl;
     }
     else{
