@@ -261,7 +261,14 @@ int main(){
     bst.insertNode(6);
     bst.insertNode(1);
     bst.printInOrder();
-    cout<<bst.checkDup();
+    cout<<endl;
+    if(bst.checkDup()==1){
+        cout<<"The tree has duplicate values!!"<<endl;
+    }
+    else{
+        cout<<"The tree has not duplicate values!!"<<endl;
+    }
+    
 
 }
 
