@@ -176,11 +176,11 @@ class BinarySearchTree{
                 return left||right;
             }
         }
-        bool checkDup(Node* parent) {
+        bool checkDuplicate(Node* parent) {
         if (parent != nullptr) {   
             if(checking(parent->left, parent->data)) return true; 
             if(checking(parent->right, parent->data)) return true;
-            return checkDup(parent->left)||checkDup(parent->right);  
+            return checkDuplicate(parent->left)||checkDuplicate(parent->right);  
         }
         else return false;
     }
@@ -243,9 +243,9 @@ class BinarySearchTree{
         int countNodes(){
             return countNodes(root);
         }
-        bool checkDup()
+        bool checkDuplicate()
         {
-            return checkDup(root);
+            return checkDuplicate(root);
         }
 };
 
@@ -262,7 +262,7 @@ int main(){
     bst.insertNode(1);
     bst.printInOrder();
     cout<<endl;
-    if(bst.checkDup()==1){
+    if(bst.checkDuplicate()==1){
         cout<<"The tree has duplicate values!!"<<endl;
     }
     else{
