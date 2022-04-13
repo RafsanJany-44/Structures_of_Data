@@ -144,26 +144,6 @@ class BinarySearchTree{
             return 1+countNodes(tree->left)+countNodes(tree->right);
         }
 
-       /* bool checkDup(Node* root, unordered_set<int> &s)
-        {
-        // If tree is empty, there are no
-        // duplicates.
-        if (root == NULL)
-        return false;
-    
-        // If current node's data is already present.
-        if (s.find(root->data) != s.end())
-        return true;
-    
-        // Insert current node
-        s.insert(root->data);
-        
-        // Recursively check in left and right
-        // subtrees.
-        return checkDup(root->left, s) ||
-            checkDup(root->right, s);
-        }*/
-
         bool checking(Node* parent, int val) {
             if(parent == nullptr)   // point 1
                 return false;
