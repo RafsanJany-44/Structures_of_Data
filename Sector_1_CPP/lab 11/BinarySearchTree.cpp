@@ -145,9 +145,9 @@ class BinarySearchTree{
         }
 
         bool checking(Node* parent, int val) {
-            if(parent == nullptr)   // point 1
+            if(parent == nullptr)
                 return false;
-            if (val == parent->data){   // point 2
+            if (val == parent->data){
                 return true;
             }
             else{
