@@ -232,14 +232,14 @@ class BinarySearchTree{
 };
 
 
-string main(){
+int main(){
     BinarySearchTree bst;
-    bst.insertNode("a");
-    bst.insertNode("b");
-    bst.insertNode("g");
-    bst.insertNode("t");
-    bst.insertNode("u");
-    bst.insertNode("h");
+    bst.insertNode("abc dfasdf");
+    bst.insertNode("asdf adf");
+    bst.insertNode("asdf fasdf");
+    bst.insertNode("asdf lkoj");
+    bst.insertNode("fadf ljlkj");
+    bst.insertNode("adf lkj");
     bst.insertNode("w");
     bst.insertNode("h");
     bst.printInOrder();
