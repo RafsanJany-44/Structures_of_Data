@@ -2,19 +2,11 @@
 
 #include <iostream>
 using namespace std;
-// void addNodeAtEnd(int data)
-//void addNodeAtFront(int data)
-//void append(int data)
-//void deleteFirstNode()
-//void deleteLastNode()
-//void len()
-//void get(int)
-//void insertNodeAt(int data,int index)
-//int index(int data)
+
 
 
 struct Node{
-    int data;
+    string data;
     Node *next;
 };
 
@@ -29,7 +21,7 @@ public:
         head= NULL;
     }
 
-    void addNodeAtEnd(int data){
+    void addNodeAtEnd(string data){
         
         //creating a new node
         Node *n=new Node;
@@ -50,21 +42,21 @@ public:
         }
     }
 
-    void addNodeAtFront(int data){
+    void addNodeAtFront(string data){
         Node *n=new Node;
         n->data=data;
         n->next=head;
         head=n;
     }
 
-    void append(int data){
+    void append(string data){
         Node *n=new Node;
         n->data=data;
         n->next=head;
         head=n; 
     }
 
-    void insertNodeAt(int data,int position){
+    void insertNodeAt(string data,int position){
         Node *n=new Node;
         n->data=data;
         n->next=NULL;
@@ -135,7 +127,7 @@ public:
         return index;
     }
 
-    int get(int index){
+    string get(int index){
         if(head==NULL){
             cout<<"List is empty!"<<endl;
         }
@@ -156,7 +148,7 @@ public:
         cout<<"Index out of range, Garbage=";
     }
 
-    int index(int data){
+    int index(string data){
         if(head==NULL){
             cout<<"List is empty!"<<endl;
         }
@@ -185,15 +177,15 @@ public:
 
 int main(){
     LinkedList l;
-    l.addNodeAtEnd(5);
-    l.addNodeAtEnd(4);
-    l.append(9);
-    l.append(7);
-    l.addNodeAtFront(6);
-    l.addNodeAtFront(3);
+    l.addNodeAtEnd("A");
+    l.addNodeAtEnd("b");
+    l.append("c");
+    l.append("v");
+    l.addNodeAtFront("e");
+    l.addNodeAtFront("r");
     cout<<"Current :";
     l.printAllNode();
-    l.insertNodeAt(8,3);
+    l.insertNodeAt("h",3);
     cout<<"After :";
     l.printAllNode();
 
@@ -212,7 +204,7 @@ int main(){
     //cout<<l.get(5);
    // cout<<l.len();
     cout<<endl;
-    /*for(int i=0;i<l.len();i++){
+    /*for(string i=0;i<l.len();i++){
         cout<<l.get(i)<<endl;
 
     }*/
