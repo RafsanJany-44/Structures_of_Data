@@ -1,182 +1,256 @@
-// I try to make linklist to use as a array or list..
-
 #include <iostream>
 using namespace std;
 
-
-
-struct Node{
+struct Node
+{
     string data;
-    Node *next;
+    Node *left;
+    Node *right;
 };
 
-class LinkedList{
-private:
-    Node *head;
+class BinarySearchTree{
+    private:
+        Node* root;
 
-public:
-
-    LinkedList()
-    {
-        head= NULL;
-    }
-
-    void addNodeAtEnd(string data){
-        
-        //creating a new node
-        Node *n=new Node;
-        n->data=data;
-        n->next=NULL;
-        // n node has been created
-        
-        if(head==NULL){//if there is no head then the n will be the first head
-            head=n;
-        }
-
-        else{
-            Node *current=head; //seting the head node to a current node
-            while(current->next!=NULL){// travarsing all node to the last one
-                current=current->next;
+        void insertNode(Node *&tree, string data){
+            if(tree == NULL){
+                tree = new Node;
+                tree->data = data;
+                tree->left = NULL;
+                tree->right = NULL;
+            }else if(data < tree->data){
+                insertNode(tree->left,data);
+            }else{
+                insertNode(tree->right,data);
             }
-            current->next=n;//at the last node adding the node newly created
-        }
-    }
-
-    void addNodeAtFront(string data){
-        Node *n=new Node;
-        n->data=data;
-        n->next=head;
-        head=n;
-    }
-
-    void append(string data){
-        Node *n=new Node;
-        n->data=data;
-        n->next=head;
-        head=n; 
-    }
-
-    void insertNodeAt(string data,int position){
-        Node *n=new Node;
-        n->data=data;
-        n->next=NULL;
-        if(head==NULL){
-            head=n;
-            return;
-        }
-        if(position==1){
-            addNodeAtFront(data);
-            return;
         }
 
-        Node *current=head;
-        for(int i=1;i<position-1;i++){
-            current=current->next;   
-        }
-        n->next=current->next;
-        current->next=n;
-        
-        
-    }
-
-    void deleteFirstNode(){
-        if (head==NULL){
-            return;
-        }
-        Node *current=head; //if we do not this line the the memry will be allocated with previous head
-        head=head->next;
-        delete current; // delete key word takes a address and deete. the head,current,head->next are addrees.
-    }
-
-    void deleteLastNode(){
-        if (head==NULL){
-            return;
-        }
-        Node *current=head;
-
-        while(current->next->next!=NULL){//hare two next used to stop the while loop before the last node
-            current=current->next;
-        }
-        delete current->next; 
-        current->next=NULL;
-
-    }
-
-    void deleteNodeAt(int index){
-        if(head==NULL){return;}
-
-        if(index==1){deleteFirstNode();}
-
-        Node *current=head;
-        for(int i=1;i<index-1;i++){
-            current=current->next;
-        }
-        Node *temp=current->next;
-        current->next=current->next->next;
-        delete temp;
-    }
-
-    int len(){
-        
-        int index=0;
-        Node *current=head;
-        while(current!=NULL){
-            current=current->next;
-            index++;
-        }
-        return index;
-    }
-
-    string get(int index){
-        if(head==NULL){
-            cout<<"List is empty!"<<endl;
-        }
-
-        if(index<0){
-            int  len=this->len();
-            index=len+index;
-        }
-        int i=0; 
-        Node *current = head;
-        while(current!=NULL){
-            if(i==index){
-            return current->data;
+        void printInOrder(Node *tree){
+            if(tree == NULL){
+                return;
             }
-            current = current->next;
-            i++;
+            printInOrder(tree->left);
+            cout << tree->data << ", ";
+            printInOrder(tree->right);
         }
-        cout<<"Index out of range, Garbage=";
+
+        int treeLength(Node *tree){
+            if(tree==NULL){
+                return 0;
+            }
+            return 1+treeLength(tree->left)+treeLength(tree->right);
+        }
+
+        bool findNode(Node *tree, string data){
+            if(tree==NULL){
+                return false;
+            }
+
+            if(tree->data == data){
+                return true;
+            }else if(data < tree->data){
+                return findNode(tree->left,data);
+            }else{
+                return findNode(tree->right,data);
+            }
+        }
+
+        Node* retrieveNode(Node *tree, string data){
+            if(tree==NULL){
+                return NULL;
+            }
+
+            if(tree->data == data){
+                return tree;
+            }else if(data < tree->data){
+                return retrieveNode(tree->left,data);
+            }else{
+                return retrieveNode(tree->right,data);
+            }
+        }
+
+        void deleteNode(Node *&tree, string data){
+            if(tree == NULL){
+                return;
+            }
+            if(tree->data == data){
+                if(tree->left == NULL && tree->right == NULL){
+                    delete tree;
+                    tree = NULL;
+                }else if(tree->left != NULL){
+                    string maxLeftNode = findMaxNode(tree->left);
+                    tree->data = maxLeftNode;
+                    deleteNode(tree->left,maxLeftNode);
+                }else{
+                    string minRightNode = findMinNode(tree->right);
+                    tree->data = minRightNode;
+                    deleteNode(tree->right,minRightNode);
+                }
+            }else if(tree->data < data){
+                deleteNode(tree->right,data);
+            }else{
+                deleteNode(tree->left,data);
+            }
+        }
+
+        string findMinNode(Node *tree){
+            if(tree == NULL){
+                return "None";
+            }else if(tree->left == NULL){
+                return tree->data;
+            }else{
+                return findMinNode(tree->left);
+            }
+        }
+
+        string findMaxNode(Node *tree){
+            if(tree == NULL){
+                return "None";
+            }else if(tree->right == NULL){
+                return tree->data;
+            }else{
+                return findMaxNode(tree->right);
+            }
+        }
+
+        void makeEmpty(Node *&tree){
+            if(tree == NULL){
+                return;
+            }
+            makeEmpty(tree->left);
+            makeEmpty(tree->right);
+            delete tree;
+            tree = NULL;
+        }
+
+        int getHeight(Node *tree){
+            if(tree == NULL){
+                return 0;
+            }
+            int lsh = 1+getHeight(tree->left);
+            int rsh = 1+getHeight(tree->right);
+
+            if(lsh > rsh){
+                return lsh;
+            }else{
+                return rsh;
+            }
+        }
+
+        int countNodes(Node *tree){
+            if(tree==NULL){
+                return 0;
+            }
+            return 1+countNodes(tree->left)+countNodes(tree->right);
+        }
+
+        bool checking(Node* parent, string val) {
+            if(parent == nullptr)
+                return false;
+            if (val == parent->data){
+                return true;
+            }
+            else{
+                bool left = checking(parent->left, val);
+                bool right = checking(parent->right, val);
+                return left||right;
+            }
+        }
+        bool checkDuplicate(Node* parent) {
+        if (parent != nullptr) {   
+            if(checking(parent->left, parent->data)) return true; 
+            if(checking(parent->right, parent->data)) return true;
+            return checkDuplicate(parent->left)||checkDuplicate(parent->right);  
+        }
+        else return false;
     }
 
-    int index(string data){
-        if(head==NULL){
-            cout<<"List is empty!"<<endl;
+        
+
+
+
+    public:
+        BinarySearchTree(){
+            root = NULL;
         }
-        Node* current = head;
-        int i=0;
-        while(current!=NULL){
-            if(current->data==data){
-                return i;
+        void insertNode(string data){
+            insertNode(root,data);
+        }
+
+        void printInOrder(){
+            printInOrder(root);
+        }
+
+        string treeLength(){
+            treeLength(root);
+        }
+
+        Node* retrieveNode(string data){
+            return retrieveNode(root,data);
+        }
+
+        bool findNode(string data){
+            return findNode(root,data);
+        }
+
+        void deleteNode(string data){
+            deleteNode(root,data);
+        }
+
+        string findMinNode(){
+            findMinNode(root);
+        }
+        string findMaxNode(){
+            findMaxNode(root);
+        }
+
+        bool isBalanced();
+
+        void makeEmpty(){
+            makeEmpty(root);
+        }
+
+        string getHeight(){
+            getHeight(root);
+        }
+
+        bool isEmpty(){
+            if(root == NULL){
+                return true;
+            }else{
+                return false;
             }
-            i++;
-            current=current->next;
         }
-        cout<<"No Item Found, Garbage=";
+
+        int countNodes(){
+            return countNodes(root);
+        }
+        bool checkDuplicate()
+        {
+            return checkDuplicate(root);
+        }
+};
+
+
+string main(){
+    BinarySearchTree bst;
+    bst.insertNode("a");
+    bst.insertNode("b");
+    bst.insertNode("g");
+    bst.insertNode("t");
+    bst.insertNode("u");
+    bst.insertNode("h");
+    bst.insertNode("w");
+    bst.insertNode("h");
+    bst.printInOrder();
+    cout<<endl;
+    if(bst.checkDuplicate()==1){
+        
+        cout<<"The tree has duplicate values!!"<<endl;
+    }
+    else{
+        cout<<"The tree has not duplicate values!!"<<endl;
     }
     
 
-    void printAllNode(){
-        Node *current=head;
-        while(current!=NULL){
-            cout << current->data<<"-> ";
-            current=current->next;
-        }
-        cout<<endl;
-    }
-};
-
-int main(){
-    LinkedList contactNamed;
-    LinkedList contactNumber;
-    
 }
