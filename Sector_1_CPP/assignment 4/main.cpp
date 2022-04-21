@@ -176,38 +176,7 @@ public:
 };
 
 int main(){
-    LinkedList l;
-    l.addNodeAtEnd("A");
-    l.addNodeAtEnd("b");
-    l.append("c");
-    l.append("v");
-    l.addNodeAtFront("e");
-    l.addNodeAtFront("r");
-    cout<<"Current :";
-    l.printAllNode();
-    l.insertNodeAt("h",3);
-    cout<<"After :";
-    l.printAllNode();
-
-    /* cout<<"After deleting the first node: ";
-    l.deleteFirstNode();
-    l.printAllNode();
-    cout<<"After deleting the last node: ";
-    l.deleteLastNode();
-    l.printAllNode();
-    cout<<"After deleting the ith node: ";
-    l.deleteNodeAt(5);
-    l.printAllNode();
-    cout<<"Showing the ith index: ";
-    cout<<l.get(3);
-    l.printAllNode();*/
-    //cout<<l.get(5);
-   // cout<<l.len();
-    cout<<endl;
-    /*for(string i=0;i<l.len();i++){
-        cout<<l.get(i)<<endl;
-
-    }*/
-   // cout <<l.index(9);
-   cout<<l.get(-5);
+    LinkedList contactNamed;
+    LinkedList contactNumber;
+    
 }
