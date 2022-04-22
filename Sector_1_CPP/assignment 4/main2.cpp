@@ -324,7 +324,13 @@ while(true){
         cout<<"Contact added successfully."<<endl;
     }
 
-    else if(d==3){
+    else if(d==4){
+        cout<<endl;
+        cout<<"*** Search Contact By Phone Number ***"<<endl;
+        int num;
+        cout<<"Enter a Number: ";
+        cin>>num;
+        
 
     }
 
