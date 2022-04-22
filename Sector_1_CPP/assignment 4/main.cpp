@@ -321,6 +321,7 @@ while(true){
     }
 
 }
+
 /* 
 bst.insertNode("abc dfasdf",2341234);
 bst.insertNode("asdf adf",1341234);
