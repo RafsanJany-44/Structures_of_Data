@@ -29,7 +29,7 @@ class BinarySearchTree{
 
         void printInOrder(Node *tree){
             if(tree == NULL){
-                cout<<"Contact book is empty."<<endl;
+                cout<<endl;
                 cout<<endl;
                 return;
             }
@@ -299,7 +299,13 @@ while(true){
     }
 
     else if(d==1){
-        bst.printInOrder();
+        if (bst.isEmpty()==false){
+            bst.printInOrder();
+        }
+        else
+        {
+            cout<<"Contact book is empty."
+        }
     }
 
     else if(d==2){
@@ -307,7 +313,7 @@ while(true){
         int number;
         cout<<"Enter name: ";
         cin>>name;
-        cout<<"Enter number: ";
+        cout<<"Enter phone number: ";
         cin>>number;
         bst.insertNode(name,number);
     }
