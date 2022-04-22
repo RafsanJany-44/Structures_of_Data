@@ -29,7 +29,6 @@ class BinarySearchTree{
 
         void printInOrder(Node *tree){
             if(tree == NULL){
-                cout<<"Contact book is empty."<<endl;
                 cout<<endl;
                 return;
             }
