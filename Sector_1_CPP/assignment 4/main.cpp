@@ -279,7 +279,8 @@ int main(){
     cout<<"*** CONTACT BOOK ***"<<endl;
     cout<<"********************"<<endl;
     cout<<endl;
-    
+
+while(true){
     cout<<"------ Menu --------"<<endl;
     cout<<"1. View all contacts"<<endl;
     cout<<"2. Add new contact"<<endl;
@@ -288,8 +289,13 @@ int main(){
     cout<<"Delete a contact"<<endl;
     cout<<"Delete all contacts"<<endl;
     cout<<"7. Exit program"<<endl;
+    int d;
+    cin>>d;
+    if(d==7){
+        break;
+    }
 
-
+}
     bst.insertNode("abc dfasdf",2341234);
     bst.insertNode("asdf adf",1341234);
     bst.insertNode("asdf fasdf",35345);
@@ -300,6 +306,11 @@ int main(){
     bst.insertNode("h",345345);
     bst.printInOrder();
     cout<<endl;
+
+
+
+
+
     if(bst.checkDuplicate()==1){
         
         cout<<"The tree has duplicate values!!"<<endl;
