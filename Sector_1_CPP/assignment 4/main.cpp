@@ -304,7 +304,9 @@ while(true){
         }
         else
         {
-            cout<<"Contact book is empty."
+            cout<<endl;
+            cout<<"Contact book is empty."<<endl;
+            cout<<endl;
         }
     }
 
