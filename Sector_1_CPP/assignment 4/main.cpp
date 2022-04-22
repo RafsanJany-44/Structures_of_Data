@@ -30,6 +30,7 @@ class BinarySearchTree{
         void printInOrder(Node *tree){
             if(tree == NULL){
                 cout<<"Contact book is empty."<<endl;
+                cout<<endl;
                 return;
             }
             printInOrder(tree->left);
@@ -292,7 +293,7 @@ while(true){
     cout<<"7. Exit program"<<endl;
     int d;
     cout<<"--------------------"<<endl;
-    cout<<"Select an option: ";
+    cout<<"Select an option(1-7): ";
     cin>>d;
     cout<<"--------------------"<<endl;
     if(d==7){
