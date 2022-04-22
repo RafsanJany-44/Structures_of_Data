@@ -312,20 +312,19 @@ while(true){
         cout<<"Enter number: ";
         cin>>number;
         bst.insertNode(name,number);
-
     }
 
 }
-   /* bst.insertNode("abc dfasdf",2341234);
-    bst.insertNode("asdf adf",1341234);
-    bst.insertNode("asdf fasdf",35345);
-    bst.insertNode("asdf lkoj",34534);
-    bst.insertNode("fadf ljlkj",34534);
-    bst.insertNode("adf lkj",4435);
-    bst.insertNode("w",3455);
-    bst.insertNode("h",345345);
-    bst.printInOrder();
-    cout<<endl;
+/* bst.insertNode("abc dfasdf",2341234);
+bst.insertNode("asdf adf",1341234);
+bst.insertNode("asdf fasdf",35345);
+bst.insertNode("asdf lkoj",34534);
+bst.insertNode("fadf ljlkj",34534);
+bst.insertNode("adf lkj",4435);
+bst.insertNode("w",3455);
+bst.insertNode("h",345345);
+bst.printInOrder();
+cout<<endl;
 
 
 
