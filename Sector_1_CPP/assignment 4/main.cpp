@@ -29,6 +29,7 @@ class BinarySearchTree{
 
         void printInOrder(Node *tree){
             if(tree == NULL){
+                cout<<"Contact book is empty."<<endl;
                 return;
             }
             printInOrder(tree->left);
@@ -286,17 +287,35 @@ while(true){
     cout<<"2. Add new contact"<<endl;
     cout<<"3. Search a contact by name"<<endl;
     cout<<"4. Search a contact by phone number"<<endl;
-    cout<<"Delete a contact"<<endl;
-    cout<<"Delete all contacts"<<endl;
+    cout<<"5. Delete a contact"<<endl;
+    cout<<"6. Delete all contacts"<<endl;
     cout<<"7. Exit program"<<endl;
     int d;
+    cout<<"--------------------"<<endl;
+    cout<<"Select an option: ";
     cin>>d;
+    cout<<"--------------------"<<endl;
     if(d==7){
         break;
     }
 
+    else if(d==1){
+        bst.printInOrder();
+    }
+
+    else if(d==2){
+        string name;
+        int number;
+        cout<<"Enter name: ";
+        cin>>name;
+        cout<<"Enter number: ";
+        cin>>number;
+        bst.insertNode(name,number);
+
+    }
+
 }
-    bst.insertNode("abc dfasdf",2341234);
+   /* bst.insertNode("abc dfasdf",2341234);
     bst.insertNode("asdf adf",1341234);
     bst.insertNode("asdf fasdf",35345);
     bst.insertNode("asdf lkoj",34534);
@@ -317,7 +336,7 @@ while(true){
     }
     else{
         cout<<"The tree has not duplicate values!!"<<endl;
-    }
+    }*/
     
 
 }
