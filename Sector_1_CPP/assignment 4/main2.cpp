@@ -302,6 +302,7 @@ while(true){
 
     else if(d==1){
         if(bst.isEmpty()==false){
+        cout<<"Showing"<< bst.countNodes() <<"contacts:";
         bst.printInOrder();
         }
         else{
@@ -318,6 +319,11 @@ while(true){
         cout<<"Enter number: ";
         cin>>number;
         bst.insertNode(name,number);
+        cout<<endl;
+        cout<<"Contact added successfully."<<endl;
+    }
+
+    else if(d==3){
 
     }
 
