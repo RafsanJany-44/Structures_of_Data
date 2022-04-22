@@ -279,7 +279,17 @@ int main(){
     cout<<"*** CONTACT BOOK ***"<<endl;
     cout<<"********************"<<endl;
     cout<<endl;
+    
     cout<<"------ Menu --------"<<endl;
+    cout<<"1. View all contacts"<<endl;
+    cout<<"2. Add new contact"<<endl;
+    cout<<"3. Search a contact by name"<<endl;
+    cout<<"4. Search a contact by phone number"<<endl;
+    cout<<"Delete a contact"<<endl;
+    cout<<"Delete all contacts"<<endl;
+    cout<<"7. Exit program"<<endl;
+
+
     bst.insertNode("abc dfasdf",2341234);
     bst.insertNode("asdf adf",1341234);
     bst.insertNode("asdf fasdf",35345);
