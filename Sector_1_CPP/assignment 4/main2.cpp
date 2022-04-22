@@ -33,7 +33,7 @@ class BinarySearchTree{
                 return;
             }
             printInOrder(tree->left);
-            cout << tree->data << " and "<<tree->number<<",";
+            cout << tree->data << ", "<<tree->number<<;
             printInOrder(tree->right);
         }
 
@@ -301,7 +301,12 @@ while(true){
     }
 
     else if(d==1){
+        if(bst.isEmpty()==false){
         bst.printInOrder();
+        }
+        else{
+            cout<<"Contact book is empty."<<endl;
+        }
     }
 
     else if(d==2){
