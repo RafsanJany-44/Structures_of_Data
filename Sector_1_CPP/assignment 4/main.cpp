@@ -275,14 +275,14 @@ class BinarySearchTree{
 
 int main(){
     BinarySearchTree bst;
-    bst.insertNode("abc dfasdf");
-    bst.insertNode("asdf adf");
-    bst.insertNode("asdf fasdf");
-    bst.insertNode("asdf lkoj");
-    bst.insertNode("fadf ljlkj");
-    bst.insertNode("adf lkj");
-    bst.insertNode("w");
-    bst.insertNode("h");
+    bst.insertNode("abc dfasdf",2341234);
+    bst.insertNode("asdf adf",1341234);
+    bst.insertNode("asdf fasdf",35345);
+    bst.insertNode("asdf lkoj",34534);
+    bst.insertNode("fadf ljlkj",34534);
+    bst.insertNode("adf lkj",4435);
+    bst.insertNode("w",3455);
+    bst.insertNode("h",345345);
     bst.printInOrder();
     cout<<endl;
     if(bst.checkDuplicate()==1){
