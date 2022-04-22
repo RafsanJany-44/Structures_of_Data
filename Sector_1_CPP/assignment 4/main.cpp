@@ -1,6 +1,6 @@
 #include <iostream>
+#include <string>
 using namespace std;
-
 struct Node
 {
     string data;
@@ -315,7 +315,7 @@ while(true){
         int number;
         cout<<"Enter name: ";
         //cin>>name;
-         getline(name);
+        getline(cin,name);
         cout<<"Enter phone number: ";
         cin>>number;
         bst.insertNode(name,number);
