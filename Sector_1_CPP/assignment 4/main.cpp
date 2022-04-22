@@ -20,7 +20,7 @@ class BinarySearchTree{
                 tree->number=number;
                 tree->left = NULL;
                 tree->right = NULL;
-            }else if(data < tree->data){
+            }else if(number < tree->number){
                 insertNode(tree->left,data,number);
             }else{
                 insertNode(tree->right,data,number);
@@ -117,7 +117,7 @@ class BinarySearchTree{
                     tree->data = minRightNode;
                     deleteNode(tree->right,minRightNode);
                 }
-            }else if(tree->data < number){
+            }else if(tree->number < number){
                 deleteNode(tree->right,number);
             }else{
                 deleteNode(tree->left,number);
@@ -204,8 +204,8 @@ class BinarySearchTree{
         BinarySearchTree(){
             root = NULL;
         }
-        void insertNode(string data){
-            insertNode(root,data);
+        void insertNode(string data,int number){
+            insertNode(root,data,number);
         }
 
         void printInOrder(){
@@ -216,16 +216,26 @@ class BinarySearchTree{
             treeLength(root);
         }
 
-        Node* retrieveNode(string data){
-            return retrieveNode(root,data);
+        Node* retrieveName(string data){
+            return retrieveName(root,data);
         }
 
-        bool findNode(string data){
-            return findNode(root,data);
+
+        Node* retrieveNumber(int number){
+            return retrieveNumber(root,number);
         }
 
-        void deleteNode(string data){
-            deleteNode(root,data);
+        bool findName(string data){
+            return findName(root,data);
+        }
+
+        bool findNumber(int number){
+            return findNumber(root,number);
+        }
+
+
+        void deleteNode(int number){
+            deleteNode(root,number);
         }
 
         string findMinNode(){
