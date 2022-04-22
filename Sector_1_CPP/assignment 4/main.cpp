@@ -64,14 +64,14 @@ class BinarySearchTree{
 
             if(tree->number == number){
                 return true;
-            }else if(data < tree->data){
+            }else if(number < tree->number){
                 return findNumber(tree->left,number);
             }else{
                 return findNumber(tree->right,number);
             }
         }
 
-        Node* retrieveNode(Node *tree, string data){
+        Node* retrieveName(Node *tree, string data){
             if(tree==NULL){
                 return NULL;
             }
@@ -79,51 +79,66 @@ class BinarySearchTree{
             if(tree->data == data){
                 return tree;
             }else if(data < tree->data){
-                return retrieveNode(tree->left,data);
+                return retrieveName(tree->left,data);
             }else{
-                return retrieveNode(tree->right,data);
+                return retrieveName(tree->right,data);
             }
         }
 
-        void deleteNode(Node *&tree, string data){
+        Node* retrieveNumber(Node *tree, int number){
+            if(tree==NULL){
+                return NULL;
+            }
+
+            if(tree->number == number){
+                return tree;
+            }else if(number < tree->number){
+                return retrieveNumber(tree->left,number);
+            }else{
+                return retrieveNumber(tree->right,number);
+            }
+        }
+
+
+        void deleteNode(Node *&tree, int number){
             if(tree == NULL){
                 return;
             }
-            if(tree->data == data){
+            if(tree->number == number){
                 if(tree->left == NULL && tree->right == NULL){
                     delete tree;
                     tree = NULL;
                 }else if(tree->left != NULL){
-                    string maxLeftNode = findMaxNode(tree->left);
+                    int maxLeftNode = findMaxNode(tree->left);
                     tree->data = maxLeftNode;
                     deleteNode(tree->left,maxLeftNode);
                 }else{
-                    string minRightNode = findMinNode(tree->right);
+                    int minRightNode = findMinNode(tree->right);
                     tree->data = minRightNode;
                     deleteNode(tree->right,minRightNode);
                 }
-            }else if(tree->data < data){
-                deleteNode(tree->right,data);
+            }else if(tree->data < number){
+                deleteNode(tree->right,number);
             }else{
-                deleteNode(tree->left,data);
+                deleteNode(tree->left,number);
             }
         }
 
-        string findMinNode(Node *tree){
+        int findMinNode(Node *tree){
             if(tree == NULL){
-                return "None";
+                return -1;
             }else if(tree->left == NULL){
-                return tree->data;
+                return tree->number;
             }else{
                 return findMinNode(tree->left);
             }
         }
 
-        string findMaxNode(Node *tree){
+        int findMaxNode(Node *tree){
             if(tree == NULL){
-                return "None";
+                return -1;
             }else if(tree->right == NULL){
-                return tree->data;
+                return tree->number;
             }else{
                 return findMaxNode(tree->right);
             }
