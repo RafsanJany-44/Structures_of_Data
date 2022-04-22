@@ -314,7 +314,8 @@ while(true){
         string name;
         int number;
         cout<<"Enter name: ";
-        cin>>name;
+        //cin>>name;
+         getline(name);
         cout<<"Enter phone number: ";
         cin>>number;
         bst.insertNode(name,number);
