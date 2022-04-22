@@ -275,6 +275,11 @@ class BinarySearchTree{
 
 int main(){
     BinarySearchTree bst;
+    cout<<"********************"<<endl;
+    cout<<"*** CONTACT BOOK ***"<<endl;
+    cout<<"********************"<<endl;
+    cout<<endl;
+    cout<<"------ Menu --------"<<endl;
     bst.insertNode("abc dfasdf",2341234);
     bst.insertNode("asdf adf",1341234);
     bst.insertNode("asdf fasdf",35345);
