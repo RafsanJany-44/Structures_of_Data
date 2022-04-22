@@ -302,8 +302,9 @@ while(true){
 
     else if(d==1){
         if(bst.isEmpty()==false){
-        cout<<"Showing"<< bst.countNodes() <<"contacts:";
+        cout<<"Showing "<< bst.countNodes() <<" contacts:";
         bst.printInOrder();
+        cout<<endl;
         }
         else{
             cout<<"Contact book is empty."<<endl;
