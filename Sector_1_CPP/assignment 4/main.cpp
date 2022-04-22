@@ -34,7 +34,7 @@ class BinarySearchTree{
                 return;
             }
             printInOrder(tree->left);
-            cout << tree->data << " and "<<tree->number<<",";
+            cout << tree->data << ", "<<tree->number<<",";
             printInOrder(tree->right);
         }
 
@@ -100,8 +100,6 @@ class BinarySearchTree{
                 return retrieveNumber(tree->right,number);
             }
         }
-
-
         void deleteNode(Node *&tree, int number){
             if(tree == NULL){
                 return;
