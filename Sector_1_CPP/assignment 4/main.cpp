@@ -13,16 +13,17 @@ class BinarySearchTree{
     private:
         Node* root;
 
-        void insertNode(Node *&tree, string data){
+        void insertNode(Node *&tree, string data,int number){
             if(tree == NULL){
                 tree = new Node;
                 tree->data = data;
+                tree->number=number;
                 tree->left = NULL;
                 tree->right = NULL;
             }else if(data < tree->data){
-                insertNode(tree->left,data);
+                insertNode(tree->left,data,number);
             }else{
-                insertNode(tree->right,data);
+                insertNode(tree->right,data,number);
             }
         }
 
@@ -31,7 +32,7 @@ class BinarySearchTree{
                 return;
             }
             printInOrder(tree->left);
-            cout << tree->data << ", ";
+            cout << tree->data << " and "<<tree->number<<",";
             printInOrder(tree->right);
         }
 
@@ -42,7 +43,7 @@ class BinarySearchTree{
             return 1+treeLength(tree->left)+treeLength(tree->right);
         }
 
-        bool findNode(Node *tree, string data){
+        bool findName(Node *tree, string data){
             if(tree==NULL){
                 return false;
             }
@@ -50,9 +51,23 @@ class BinarySearchTree{
             if(tree->data == data){
                 return true;
             }else if(data < tree->data){
-                return findNode(tree->left,data);
+                return findName(tree->left,data);
             }else{
-                return findNode(tree->right,data);
+                return findName(tree->right,data);
+            }
+        }
+
+        bool findNumber(Node *tree, int number){
+            if(tree==NULL){
+                return false;
+            }
+
+            if(tree->number == number){
+                return true;
+            }else if(data < tree->data){
+                return findNumber(tree->left,number);
+            }else{
+                return findNumber(tree->right,number);
             }
         }
 
