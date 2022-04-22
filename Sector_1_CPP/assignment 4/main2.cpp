@@ -33,7 +33,7 @@ class BinarySearchTree{
                 return;
             }
             printInOrder(tree->left);
-            cout << tree->data << ", "<<tree->number<<;
+            cout << tree->data << ", "<<tree->number;
             printInOrder(tree->right);
         }
 
