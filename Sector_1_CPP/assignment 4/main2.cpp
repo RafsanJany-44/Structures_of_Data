@@ -4,7 +4,7 @@ using namespace std;
 struct Node
 {
     string data;
-    int number;
+    string number;
     Node *left;
     Node *right;
 };
@@ -13,7 +13,7 @@ class BinarySearchTree{
     private:
         Node* root;
 
-        void insertNode(Node *&tree, string data,int number){
+        void insertNode(Node *&tree, string data,string number){
             if(tree == NULL){
                 tree = new Node;
                 tree->data = data;
@@ -58,13 +58,14 @@ class BinarySearchTree{
             }
         }
 
-        bool findNumber(Node *tree, int number){
+        bool findNumber(Node *tree, string number){
             if(tree==NULL){
                 return false;
             }
 
             if(tree->number == number){
-                cout<<tree->data<<", "<<tree->number;
+                cout<<tree->data<<", "<<tree->number<<endl;
+                cout<<endl;
                 return true;
             }else if(number < tree->number){
                 return findNumber(tree->left,number);
@@ -87,7 +88,7 @@ class BinarySearchTree{
             }
         }
 
-        Node* retrieveNumber(Node *tree, int number){
+        Node* retrieveNumber(Node *tree, string number){
             if(tree==NULL){
                 return NULL;
             }
@@ -102,7 +103,7 @@ class BinarySearchTree{
         }
 
 
-        void deleteNode(Node *&tree, int number){
+        void deleteNode(Node *&tree, string number){
             if(tree == NULL){
                 return;
             }
@@ -111,11 +112,11 @@ class BinarySearchTree{
                     delete tree;
                     tree = NULL;
                 }else if(tree->left != NULL){
-                    int maxLeftNode = findMaxNode(tree->left);
+                    string maxLeftNode = findMaxNode(tree->left);
                     tree->data = maxLeftNode;
                     deleteNode(tree->left,maxLeftNode);
                 }else{
-                    int minRightNode = findMinNode(tree->right);
+                    string minRightNode = findMinNode(tree->right);
                     tree->data = minRightNode;
                     deleteNode(tree->right,minRightNode);
                 }
@@ -126,9 +127,9 @@ class BinarySearchTree{
             }
         }
 
-        int findMinNode(Node *tree){
+        string findMinNode(Node *tree){
             if(tree == NULL){
-                return -1;
+                return "Null";
             }else if(tree->left == NULL){
                 return tree->number;
             }else{
@@ -136,9 +137,9 @@ class BinarySearchTree{
             }
         }
 
-        int findMaxNode(Node *tree){
+        string findMaxNode(Node *tree){
             if(tree == NULL){
-                return -1;
+                return "Null";
             }else if(tree->right == NULL){
                 return tree->number;
             }else{
@@ -206,7 +207,7 @@ class BinarySearchTree{
         BinarySearchTree(){
             root = NULL;
         }
-        void insertNode(string data,int number){
+        void insertNode(string data,string number){
             insertNode(root,data,number);
         }
 
@@ -223,7 +224,7 @@ class BinarySearchTree{
         }
 
 
-        Node* retrieveNumber(int number){
+        Node* retrieveNumber(string number){
             return retrieveNumber(root,number);
         }
 
@@ -231,12 +232,12 @@ class BinarySearchTree{
             return findName(root,data);
         }
 
-        bool findNumber(int number){
+        bool findNumber(string number){
             return findNumber(root,number);
         }
 
 
-        void deleteNode(int number){
+        void deleteNode(string number){
             deleteNode(root,number);
         }
 
@@ -314,7 +315,7 @@ while(true){
 
     else if(d==2){
         string name;
-        int number;
+        string number;
         cout<<"Enter name: ";
         cin.ignore();
         getline(cin,name);
@@ -328,12 +329,11 @@ while(true){
     else if(d==4){
         cout<<endl;
         cout<<"*** Search Contact By Phone Number ***"<<endl;
-        int num;
+        string num;
         cout<<"Enter a Number: ";
         cin>>num;
         bst.findNumber(num);
         
-
     }
 
 }
