@@ -58,21 +58,6 @@ class BinarySearchTree{
             }
         }
 
-        bool NumberExists(Node *tree, string number){
-            if(tree==NULL){
-                cout<<"No contact found"<<endl;
-                return false;
-            }
-
-            if(tree->number == number){
-                return true;
-            }else if(number < tree->number){
-                return NumberExists(tree->left,number);
-            }else{
-                return NumberExists(tree->right,number);
-            }
-        }
-
         Node* retrieveName(Node *tree, string data){
             if(tree==NULL){
                 return NULL;
@@ -87,7 +72,7 @@ class BinarySearchTree{
             }
         }
 
-                bool findNumber(Node *tree, string number){
+            bool findNumber(Node *tree, string number){
             if(tree==NULL){
                 cout<<"No contact found"<<endl;
                 return false;
@@ -252,10 +237,6 @@ class BinarySearchTree{
         bool findNumber(string number){
             return findNumber(root,number);
         }
-        bool NumberExists(string number){
-            return NumberExists(number);
-        }
-
 
         void deleteNode(string number){
             deleteNode(root,number);
@@ -363,16 +344,14 @@ while(true){
         cout<<"> Enter a phone number: ";
         string num;
         cin>>num;
-        if(bst.NumberExists(num)){
-            cout<<endl;
-            cout<<"Contact found: ";
-            bst.findNumber(num);
+        if(bst.findNumber(num)){
             cout<<"> Delete this contact? Enter y for yes, n for no:";
             string y;
+            cin>>y;
             if(y=="y"){
                 bst.deleteNode(num);
                 cout<<endl;
-                cout<<"Contact delted successfully."<<endl;
+                cout<<"Contact deleted successfully."<<endl;
                 cout<<endl;
             }
         }
