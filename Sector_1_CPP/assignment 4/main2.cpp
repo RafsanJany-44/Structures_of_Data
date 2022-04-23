@@ -67,9 +67,9 @@ class BinarySearchTree{
             if(tree->number == number){
                 return true;
             }else if(number < tree->number){
-                return findNumber(tree->left,number);
+                return NumberExists(tree->left,number);
             }else{
-                return findNumber(tree->right,number);
+                return NumberExists(tree->right,number);
             }
         }
 
