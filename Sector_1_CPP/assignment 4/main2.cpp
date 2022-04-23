@@ -60,10 +60,12 @@ class BinarySearchTree{
 
         bool findNumber(Node *tree, string number){
             if(tree==NULL){
+                cout<<"No contact found"<<endl;
                 return false;
             }
 
             if(tree->number == number){
+                cout<<"Contact found:"<<endl;
                 cout<<tree->data<<", "<<tree->number<<endl;
                 cout<<endl;
                 return true;
