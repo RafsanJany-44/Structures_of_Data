@@ -140,7 +140,6 @@ class BinarySearchTree{
                 return findMinNode(tree->left);
             }
         }
-
         string findMaxNode(Node *tree){
             if(tree == NULL){
                 return "Null";
@@ -150,7 +149,6 @@ class BinarySearchTree{
                 return findMaxNode(tree->right);
             }
         }
-
         void makeEmpty(Node *&tree){
             if(tree == NULL){
                 return;
