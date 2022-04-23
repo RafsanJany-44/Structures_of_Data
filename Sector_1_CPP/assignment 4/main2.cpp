@@ -64,6 +64,7 @@ class BinarySearchTree{
             }
 
             if(tree->number == number){
+                cout<<tree->data<<", "<<tree->number;
                 return true;
             }else if(number < tree->number){
                 return findNumber(tree->left,number);
@@ -330,6 +331,7 @@ while(true){
         int num;
         cout<<"Enter a Number: ";
         cin>>num;
+        bst.findNumber(num);
         
 
     }
