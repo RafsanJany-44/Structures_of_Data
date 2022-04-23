@@ -58,16 +58,13 @@ class BinarySearchTree{
             }
         }
 
-        bool findNumber(Node *tree, string number){
+        bool NumberExists(Node *tree, string number){
             if(tree==NULL){
                 cout<<"No contact found"<<endl;
                 return false;
             }
 
             if(tree->number == number){
-                cout<<"Contact found:"<<endl;
-                cout<<tree->data<<", "<<tree->number<<endl;
-                cout<<endl;
                 return true;
             }else if(number < tree->number){
                 return findNumber(tree->left,number);
@@ -87,6 +84,24 @@ class BinarySearchTree{
                 return retrieveName(tree->left,data);
             }else{
                 return retrieveName(tree->right,data);
+            }
+        }
+
+                bool findNumber(Node *tree, string number){
+            if(tree==NULL){
+                cout<<"No contact found"<<endl;
+                return false;
+            }
+
+            if(tree->number == number){
+                cout<<"Contact found:"<<endl;
+                cout<<tree->data<<", "<<tree->number<<endl;
+                cout<<endl;
+                return true;
+            }else if(number < tree->number){
+                return findNumber(tree->left,number);
+            }else{
+                return findNumber(tree->right,number);
             }
         }
 
@@ -237,6 +252,9 @@ class BinarySearchTree{
         bool findNumber(string number){
             return findNumber(root,number);
         }
+        bool NumberExists(string number){
+            return NumberExists(number);
+        }
 
 
         void deleteNode(string number){
@@ -306,6 +324,9 @@ while(true){
 
     else if(d==1){
         if(bst.isEmpty()==false){
+        cout<<endl;
+        cout<<"*** View Contacts ***"<<endl;
+        cout<<endl;
         cout<<"Showing "<< bst.countNodes() <<" contacts:";
         bst.printInOrder();
         cout<<endl;
@@ -332,10 +353,31 @@ while(true){
         cout<<endl;
         cout<<"*** Search Contact By Phone Number ***"<<endl;
         string num;
-        cout<<"Enter a Number: ";
+        cout<<"> Enter a Number: ";
         cin>>num;
         bst.findNumber(num);
         
+    }
+    
+    else if(d==5){
+        cout<<"> Enter a phone number: ";
+        string num;
+        cin>>num;
+        if(bst.NumberExists(num)){
+            cout<<endl;
+            cout<<"Contact found: ";
+            bst.findNumber(num);
+            cout<<"> Delete this contact? Enter y for yes, n for no:";
+            string y;
+            if(y=="y"){
+                bst.deleteNode(num);
+                cout<<endl;
+                cout<<"Contact delted successfully."<<endl;
+                cout<<endl;
+            }
+
+
+        }
     }
 
 }
