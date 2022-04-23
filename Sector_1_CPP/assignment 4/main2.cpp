@@ -375,13 +375,11 @@ while(true){
                 cout<<"Contact delted successfully."<<endl;
                 cout<<endl;
             }
-
-
         }
     }
 
 }
-   /* bst.insertNode("abc dfasdf",2341234);
+/* bst.insertNode("abc dfasdf",2341234);
     bst.insertNode("asdf adf",1341234);
     bst.insertNode("asdf fasdf",35345);
     bst.insertNode("asdf lkoj",34534);
