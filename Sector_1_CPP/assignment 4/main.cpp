@@ -82,6 +82,7 @@ class BinarySearchTree{
             }
 
             if(tree->number == number){
+                Node* temp=tree;
                 cout<<"Contact found:"<<endl;
                 cout<<tree->data<<", "<<tree->number<<endl;
                 cout<<endl;
@@ -99,6 +100,7 @@ class BinarySearchTree{
             }
 
             if(tree->number == number){
+                cout<< tree->data<<", "<<tree->number<<endl;
                 return tree;
             }else if(number < tree->number){
                 return retrieveNumber(tree->left,number);
@@ -348,14 +350,23 @@ while(true){
     else if(d==2){
         string name;
         string number;
-        cout<<"Enter name: ";
+        cout<<"> Enter name: ";
         cin.ignore();
         getline(cin,name);
-        cout<<"Enter number: ";
+        cout<<"> Enter number: ";
         cin>>number;
         bst.insertNode(name,number);
         cout<<endl;
+        cout<<endl;
+        if(bst.checkDuplicate()==1){
+            bst.deleteNode(number);
+            cout<<"Error: A contact with phone number 1234 already exists."<<endl;
+            cout<<endl;
+            cout<<endl;
+        }
+        else{
         cout<<"Contact added successfully."<<endl;
+        }
     }
 
     else if(d==4){
@@ -363,6 +374,7 @@ while(true){
         cout<<"*** Search Contact By Phone Number ***"<<endl;
         string num;
         cout<<"> Enter a Number: ";
+        cout<<endl;
         cin>>num;
         bst.findNumber(num);
         
@@ -406,28 +418,5 @@ while(true){
         getline(cin,name);
     }
     }
-/* bst.insertNode("abc dfasdf",2341234);
-    bst.insertNode("asdf adf",1341234);
-    bst.insertNode("asdf fasdf",35345);
-    bst.insertNode("asdf lkoj",34534);
-    bst.insertNode("fadf ljlkj",34534);
-    bst.insertNode("adf lkj",4435);
-    bst.insertNode("w",3455);
-    bst.insertNode("h",345345);
-    bst.printInOrder();
-    cout<<endl;
-
-
-
-
-
-    if(bst.checkDuplicate()==1){
-
-        cout<<"The tree has duplicate values!!"<<endl;
-    }
-    else{
-        cout<<"The tree has not duplicate values!!"<<endl;
-    }*/
     cout<<"*** Thank you for using Contact Book ***"<<endl;
-
 }
