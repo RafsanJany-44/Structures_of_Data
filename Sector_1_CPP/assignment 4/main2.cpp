@@ -41,13 +41,20 @@ class BinarySearchTree{
         }
 
         void NameOnly(Node *tree,string name){
+
             if(tree == NULL){
                 cout<<endl;
                 return;
             }
+
+            string given_first=firstName(name);
+            string given_last=lastName(name);
+            string tree_first=firstName(tree->data);
+            string tree_last=lastName(tree->data);
+
             printInOrder(tree->left);
 
-            if(tree->data==name){
+            if(given_first==tree_first||given_last==tree_last){
                 cout << tree->data << ", "<<tree->number;
             }
             printInOrder(tree->right);
@@ -59,6 +66,39 @@ class BinarySearchTree{
             }
             return 1+treeLength(tree->left)+treeLength(tree->right);
         }
+
+    string firstName(string name){
+        string first_name = "";
+        int flag = 0;
+        char space=' ';
+        for (int i = 0; i < name.length(); i++)
+        {
+            first_name=first_name+name[i];
+            if (name[i] ==space) 
+            {
+                break;
+            }
+        }
+        return first_name;
+    }
+
+    string lastName(string name){
+        string last_name = "";
+        int flag = 0;
+        char space=' ';
+        for (int i = 0; i < name.length(); i++)
+        {
+            if (name[i] ==space) 
+            {
+                flag=1;
+                continue;
+            }
+            if(flag==1){
+                last_name=last_name+name[i];
+            }
+    }
+    return last_name;
+}
 
         bool findName(Node *tree, string data){
             if(tree==NULL){
