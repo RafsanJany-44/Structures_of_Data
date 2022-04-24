@@ -54,7 +54,7 @@ class BinarySearchTree{
                 Node * temp=tree;
                 cout<<tree->data<<", "<<tree->number<<endl;
                 cout<<endl;
-                if(temp==NULL){
+                if(temp!=NULL){
                     return true;
                 }
                 else{
