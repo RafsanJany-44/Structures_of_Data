@@ -1,273 +1,262 @@
 #include <iostream>
-#include <fstream>
-#include <string.h>
 using namespace std;
-ofstream outf;
-class lin
+struct Contact
 {
-    long long int number;
-    char fname[20], lname[20], email[40];
-    lin *left, *right;
-    friend class tree;
+    string name;
+    string phoneNumber;
+    Contact *left;
+    Contact *right;
 };
-class tree
-{
+class ContactBook{
+private:
+    Contact *root;
+    void insertContact(Contact *&tree,string name,string phoneNumber){
+        if(tree==NULL){
+            tree = new Contact;
+            tree->name = name;
+            tree->phoneNumber = phoneNumber;
+            tree->left = NULL;
+            tree->right = NULL;
+        }
+        else if((tree->name>='A'&&tree->name<='Z')||(tree->name>='a'&&tree->name<='z')||(tree->phoneNumber>='0'&&tree->phoneNumber<='9')){
+            if((name<tree->name)||(phoneNumber<tree->phoneNumber)){
+                insertContact(tree->left,name,phoneNumber);
+            }
+            else{
+                insertContact(tree->right,name,phoneNumber);
+            }
+
+        }
+
+    }
+
+    void printInOrder(Contact *tree){
+        if(tree==NULL){
+            return;
+        }
+        printInOrder(tree->left);
+        cout<<tree->data;
+        printInOrder(tree->right);
+    }
+    bool findContact(Contact *tree, string name){
+            if(tree==NULL){
+                return false;
+            }
+
+            if(tree->name == name){
+                return true;
+            }
+            else if(name < tree->name){
+                return findContact(tree->left,name);
+            }
+            else{
+                return findContact(tree->right,name);
+            }
+    }
+    bool searchContact(Contact *tree, string phoneNumber){
+            if(tree==NULL){
+                return false;
+            }
+
+            if(tree->phoneNumber == phoneNumber){
+                return true;
+            }
+            else if(phoneNumber < tree->phoneNumber){
+                return findContact(tree->left,phoneNumber);
+            }
+            else{
+                return findContact(tree->right,phoneNumber);
+            }
+    }
+    void deleteContact(Contact *&tree, string name, string phoneNumber){
+            if(tree == NULL){
+                return;
+            }
+            if((tree->name == name)||(tree->phoneNumber == phoneNumber)){
+                if(tree->left == NULL && tree->right == NULL){
+                    delete tree;
+                    tree = NULL;
+                }
+                else if(tree->left != NULL){
+                    string maxLeftContact = findMaxContact(tree->left);
+                    tree->phoneNumber = maxLeftContact;
+                    deleteContact(tree->left,name,maxLeftContact);
+                }
+                else{
+                    string minRightContact = findMinContact(tree->right);
+                    tree->phoneNumber = minRightContact;
+                    deleteContact(tree->right,name,minRightContact);
+                }
+            }
+            else if(tree->phoneNumber < phoneNumber){
+                deleteContact(tree->right,name,phoneNumber);
+            }
+            else{
+                deleteContact(tree->left,name,phoneNumber);
+            }
+    }
+
+    void makeEmpty(Contact *&tree){
+            if(tree == NULL){
+                return;
+            }
+            makeEmpty(tree->left);
+            makeEmpty(tree->right);
+            delete tree;
+            tree = NULL;
+    }
 public:
-    lin *root;
-    tree()
-    {
-        root = new lin();
-        root = NULL;
+    void insertContact(string name,string phoneNumber){
+        insertContact(root,name,phoneNumber);
     }
-    void create()
-    {
-        int k = 0;
-        lin *tmp, *p, *parent = NULL;
-        tmp = root;
-        p = new lin();
-        cout << "\nFirst Name: ";
-        cin >> p->fname;
-        cout << "\nLast Name: ";
-        cin >> p->lname;
-        do
-        {
-            cout << "\nPhone number: ";
-            cin >> p->number;
-            k = numchck(p->number);
-        } while (k != 1);
-        do
-        {
-            cout << "\nEmail-ID: ";
-            cin >> p->email;
-            k = mailchck(p->email);
-        } while (k != 1);
-        p->left = NULL;
-        p->right = NULL;
-        if (root == NULL)
-        {
-            root = p;
+    void printInOrder(){
+        printInOrder(root);
+    }
+    bool findContact(string name){
+        return findContact(root,name);
+    }
+    bool searchContact(string phoneNumber){
+        return searchContact(root,phoneNumber);
+    }
+    void deleteContact(string name,string phoneNumber){
+        deleteContact(root,name,phoneNumber);
+    }
+    void makeEmpty(){
+        makeEmpty(root);
+    }
+    bool isEmpty(){
+        if(root == NULL){
+            return true;
         }
-        else
-        {
-            while (tmp != NULL)
-            {
-                parent = tmp;
-                if (strcmp(p->fname, tmp->fname) < 0)
-                    tmp = tmp->left;
-                else
-                    tmp = tmp->right;
-            }
-            if (strcmp(p->fname, parent->fname) < 0)
-                parent->left = p;
-            else
-                parent->right = p;
-        }
-    }
-
-    int numchck(long long int d)
-    {
-        int c = 0;
-        while (d > 0)
-        {
-            c++;
-            d /= 10;
-        }
-        if (c == 10)
-            return 1;
-        cout << "Number Invalid";
-        return 0;
-    }
-    int mailchck(char a[])
-    {
-        int j = 0, i = 0;
-        while (a[i] != '\0')
-        {
-            if (a[i] == '@')
-                j++;
-            i++;
-        }
-        if (j == 1)
-            return 1;
-        cout << "Email id Invalid";
-        return 0;
-    }
-    void inorder()
-    {
-        inordertrav(root);
-    }
-    void inordertrav(lin *t)
-    {
-
-        if (t != NULL)
-        {
-
-            inordertrav(t->left);
-            cout << "\nContact Details:\n";
-            cout << "First name: " << t->fname << "\tLast name: " << t->lname << "\nPhone Number: " << t->number << "\tEmail id: " << t->email;
-            inordertrav(t->right);
-        }
-    }
-    lin *minValueNode(struct lin *l)
-    {
-        lin *current = l;
-
-        /* loop down to find the leftmost leaf */
-        while (current->left != NULL)
-            current = current->left;
-
-        return current;
-    }
-
-    lin *deleteNode(struct lin *root, char a[20])
-    {
-
-        if (root == NULL)
-            return root;
-
-        if (strcmp(a, root->fname) < 0)
-            root->left = deleteNode(root->left, a);
-
-        else if (strcmp(a, root->fname) > 0)
-            root->right = deleteNode(root->right, a);
-
-        else
-        {
-
-            if (root->left == NULL)
-            {
-                lin *temp = root->right;
-                return temp;
-            }
-            else if (root->right == NULL)
-            {
-                lin *temp = root->left;
-                return temp;
-            }
-
-            lin *temp = minValueNode(root->right);
-            root->number = temp->number;
-            strcpy(root->lname, temp->lname);
-            strcpy(root->fname, temp->fname);
-            strcpy(root->email, temp->email);
-            root->right = deleteNode(root->right, temp->fname);
-        }
-        return root;
-    }
-    lin *edit(lin *root, char a[])
-    {
-        if (root == NULL)
-            return root;
-
-        if (strcmp(a, root->fname) < 0)
-            root->left = edit(root->left, a);
-
-        else if (strcmp(a, root->fname) > 0)
-            root->right = edit(root->right, a);
-        else
-        {
-            int x;
-            cout << "Enter the data choice to edit:\n1.First name\t2.Last name\t3.Phone number\t4.Email id:\n";
-            cin >> x;
-            cout << "\nEnter the new value:";
-            switch (x)
-            {
-            case 1:
-                cin >> root->fname;
-                break;
-            case 2:
-                cin >> root->lname;
-                break;
-            case 3:
-                cin >> root->number;
-                break;
-            case 4:
-                cin >> root->email;
-                break;
-            default:
-                cout << "Value not modifed";
-            }
-        }
-        return root;
-    }
-    void searc(lin *root, char a[])
-    {
-        if (root)
-        {
-            if (strcmp(a, root->fname) < 0)
-                searc(root->left, a);
-            else if (strcmp(a, root->fname) > 0)
-                searc(root->right, a);
-            else
-            {
-                cout << "\nContact Details:\n";
-                cout << "First name: " << root->fname << "\tLast name: " << root->lname << "\nPhone Number: " << root->number << "\tEmail id: " << root->email;
-            }
-        }
-    }
-    void filee(lin *t)
-    {
-        if (t != NULL)
-        {
-
-            filee(t->left);
-            outf << "\nContact Details:\n"
-                 << "First name: " << t->fname << "\tLast name: " << t->lname << "\nPhone Number: " << t->number << "\tEmail id: " << t->email;
-            filee(t->right);
+        else{
+            return false;
         }
     }
 };
-int main()
-{
-    tree q;
-    char c, a[20];
-    int x;
-    cout << "\n#Phone Book using BST\nEnter contacts for Phone book creation:\n";
-    do
-    {
-        cout << "\nEnter the Contact Details:\n";
-        q.create();
-        cout << "\nContinue?";
-        cin >> c;
-    } while (c == 'y');
-    cout << "\nCreation Successful\n";
-    do
-    {
-        cout << "Enter the choice :\n1.Insert\t2.Delete\t3.Edit\t4.Search\t5.Print Phone book ?\n";
-        cin >> x;
-        switch (x)
-        {
-        case 1:
-            q.create();
-            cout << "\nContact Insertion successful";
-            break;
-        case 2:
-            cout << "\nEnter the First name:";
-            cin >> a;
-            q.root = q.deleteNode(q.root, a);
-            cout << "\n1 Contact deleted successfully";
-            break;
-        case 3:
-            cout << "\nEnter the First name:";
-            cin >> a;
-            q.root = q.edit(q.root, a);
-            cout << "\nChanges updated";
-            break;
-        case 4:
-            cout << "\nEnter the First name:";
-            cin >> a;
-            q.searc(q.root, a);
-            break;
-        case 5:
-            q.inorder();
-            break;
-        default:
-            cout << "\nOption Invalid";
-        }
-        outf.open("Contacts.txt", ios::trunc);
-        q.filee(q.root);
-        cout << "Continue?\n";
-        cin >> c;
-    } while (c == 'y');
-    outf.close();
-    return 0;
+int main(){
+    cout<<"********"<<endl;
+    cout<<"* CONTACT BOOK *"<<endl;
+    cout<<"********"<<endl;
+
+    cout<<"------ Menu --------"<<endl;
+    cout<<"1. View all contacts"<<endl;
+    cout<<"2. Add new contact"<<endl;
+    cout<<"3. Search a contact by name"<<endl;
+    cout<<"4. Search a contact by phone number"<<endl;
+    cout<<"5. Delete a contact"<<endl;
+    cout<<"6. Delete all contacts"<<endl;
+    cout<<"7. Exit program"<<endl;
+
+    cout<<"--------------------"<<endl;
+    int n;
+    cout<<"Select an option (1-7): ";
+    cin>>n;
+    cout<<"--------------------"<<endl;
+    ContactBook B;
+    switch(n){
+        case 1: cout<<"* View Contacts *"<<endl;
+                if(B.isEmpty()){
+                    cout<<"Contact book is empty."<<endl;
+                }
+                else{
+                    cout<<"Showing contacts:"<<endl;
+                    B.printInOrder();
+                    cout<<endl;
+                }
+                break;
+        case 2: string naam,phone;
+                cout<<"* Add New Contact *"<<endl;
+                cout<<"> Enter name: ";
+                getline(cin,naam);
+                cout<<endl;
+                cin.ignore();
+                cout<<"> Enter phone number: ";
+                getline(cin,phone);
+                cout<<endl;
+                cin.ignore();
+                B.insertContact(naam,phone);
+                cout<<"Contact added successfully."<<endl;
+                break;
+        case 3: cout<<"* Search Contact By Name *"<<endl;
+                string nam;
+                cout<<"> Enter name: ";
+                getline(cin,nam);
+                cout<<endl;
+                cin.ignore();
+                B.findContact(nam);
+                if(B.findContact(nam)==true){
+                    cout<<"Matches found:"<<endl;
+                    B.printInOrder();
+                    cout<<endl;
+                }
+                else{
+                    cout<<"Error: This contact does not exist."<<endl;
+                }
+                break;
+        case 4: cout<<"* Search Contact By Phone Number *"<<endl;
+                string p;
+                cout<<"> Enter phone number: ";
+                getline(cin,p);
+                cout<<endl;
+                cin.ignore();
+                B.findContact(p);
+                if(B.findContact(p)==true){
+                    cout<<"Matches found:"<<endl;
+                    B.printInOrder();
+                    cout<<endl;
+                }
+                else{
+                    cout<<"Error: This contact does not exist."<<endl;
+                }
+                break;
+        case 5: cout<<"* Delete Contact *"<<endl;
+                string number;
+                cout<<"> Enter phone number: ";
+                getline(cin,number);
+                cout<<endl;
+                cin.ignore();
+                B.findContact(number);
+                if(B.findContact(number)==true){
+                    cout<<"Contact found:"<<endl;
+                    B.printInOrder();
+                    cout<<endl;
+                }
+                else{
+                    cout<<"Error: This contact does not exist."<<endl;
+                }
+                char ch;
+                cout<<"> Delete this contact? Enter y for yes, n for no: ";
+                cin>>ch;
+                if(ch=='y'){
+                    B.deleteContact(number);
+                    cout<<"Contact deleted successfully."<<endl;
+                }
+                else if(ch=='n'){
+                    cout<<"Contact not deleted."<<endl;
+                }
+                break;
+        case 6: cout<<"* Delete All Contacts *"<<endl;
+                char c;
+                cout<<"> Are you sure? Enter y for yes, n for no: ";
+                cin>>c;
+                if(c=='y'){
+                    B.makeEmpty();
+                    cout<<"All contacts deleted."<<endl;
+                }
+                else if(c=='n'){
+                    cout<<"Contacts not deleted."<<endl;
+                }
+                break;
+        case 7: char letter;
+                cout<<"> Are you sure? Enter y for yes, n for no: ";
+                cin>>letter;
+                if(letter=='y'){
+                    cout<<"* Thank you for using Contact Book *"<<endl;
+                    return 0;
+                }
+                else if(letter=='n'){
+
+                }
+                break;
+    }
 }
