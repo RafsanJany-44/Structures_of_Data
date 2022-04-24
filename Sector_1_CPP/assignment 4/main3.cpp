@@ -44,7 +44,7 @@ int main()
     cin.ignore();
     getline(cin, name);
     string new1 = firstName(name);
-    string new2 = firstName(name);
+    string new2 = lastName(name);
     cout<<new1<<endl;
     cout<<new2<<endl;
 }
