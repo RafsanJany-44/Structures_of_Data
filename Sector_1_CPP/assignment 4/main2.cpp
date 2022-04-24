@@ -28,6 +28,8 @@ class BinarySearchTree{
             }
         }
 
+        
+
         void printInOrder(Node *tree){
             if(tree == NULL){
                 cout<<endl;
@@ -35,6 +37,19 @@ class BinarySearchTree{
             }
             printInOrder(tree->left);
             cout << tree->data << ", "<<tree->number;
+            printInOrder(tree->right);
+        }
+
+        void NameOnly(Node *tree,string name){
+            if(tree == NULL){
+                cout<<endl;
+                return;
+            }
+            printInOrder(tree->left);
+
+            if(tree->data==name){
+                cout << tree->data << ", "<<tree->number;
+            }
             printInOrder(tree->right);
         }
 
@@ -300,6 +315,9 @@ class BinarySearchTree{
         {
             return checkDuplicate(root);
         }
+        void NameOnly(string data){
+             NameOnly(root,data);
+        }
 };
 int main(){
     BinarySearchTree bst;
@@ -414,7 +432,7 @@ while(true){
         cout<<"> Enter name: ";
         cin.ignore();
         getline(cin,name);
-        bst.findName(name);
+        bst.NameOnly(name);
     }
     }
     cout<<"*** Thank you for using Contact Book ***"<<endl;
