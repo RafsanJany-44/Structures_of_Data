@@ -354,7 +354,7 @@ while(true){
         bst.insertNode(name,number);
         cout<<endl;
 
-        if(bst.checkDuplicate()==1){
+        if(bst.checkDuplicate()==true){
             bst.deleteNode(number);
             cout<<"Error: A contact with phone number "<<number<<" already exists."<<endl;
             cout<<endl;
@@ -362,6 +362,7 @@ while(true){
         }
         else{
         cout<<"Contact added successfully."<<endl;
+        cout<<endl;
         }
     }
     else if(d==4){
