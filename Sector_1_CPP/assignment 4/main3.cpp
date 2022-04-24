@@ -11,13 +11,14 @@ int main()
     string new1 = "";
     string new2 = "";
     int flag = 0;
-    string space=" ";
+    char space=' ';
     cout << name << endl;
     for (int i = 0; i < name.length(); i++)
     {
-        if (name[i] == space) 
+        if (name[i] ==space) 
         {
             flag = 1;
+            continue;
         }
         if (flag == 1)
         {
@@ -28,4 +29,6 @@ int main()
             new1 = new1 + name[i];
         }
     }
+    cout<<new1<<endl;
+    cout<<new2<<endl;
 }
