@@ -107,69 +107,46 @@ class BinarySearchTree{
             }
         }
 
-
-        /*void deleteNode(Node *&tree, string number){
-            if(tree == NULL){
-                return;
-            }
-            if(tree->number == number){
-                if(tree->left == NULL && tree->right == NULL){
-                    delete tree;
-                    tree = NULL;
-                }else if(tree->left != NULL){
-                    string maxLeftNode = findMaxNode(tree->left);
-                    tree->data = maxLeftNode;
-                    deleteNode(tree->left,maxLeftNode);
-                }else{
-                    string minRightNode = findMinNode(tree->right);
-                    tree->data = minRightNode;
-                    deleteNode(tree->right,minRightNode);
-                }
-            }else if(tree->number < number){
-                deleteNode(tree->right,number);
-            }else{
-                deleteNode(tree->left,number);
-            }
-        }*/
-    Node* deleteNode(Node * root, string num){
+    Node* deleteNode(Node * root, string num)
+    {
         if (root == NULL) return root;
 
-     if (num.compare(root->number)<0)
-        root->left = deleteNode(root->left,num);
+        if (num.compare(root->number)<0)
+            root->left = deleteNode(root->left,num);
 
-    else if (num.compare(root->number)>0)
-        root->right =deleteNode(root->right,num);
+        else if (num.compare(root->number)>0)
+            root->right =deleteNode(root->right,num);
 
-    else
-    {
-
-        if (root->left == NULL)
+        else
         {
-            Node *temp = root->right;
-            return temp;
+
+            if (root->left == NULL)
+            {
+                Node *temp = root->right;
+                return temp;
+            }
+            else if (root->right == NULL)
+            {
+                Node *temp = root->left;
+                return temp;
+            }
+
+            Node* temp = minValueNode(root->right);
+            root->number = temp->number;
+            root->data = temp->data;
+
+            root->right = deleteNode(root->right, temp->data);
+            }
+            return root;
         }
-        else if (root->right == NULL)
+        Node* minValueNode(Node* l)
         {
-             Node *temp = root->left;
-            return temp;
-        }
+        Node* current = l;
 
-        Node* temp = minValueNode(root->right);
-        root->number = temp->number;
-        root->data = temp->data;
+        while (current->left != NULL)
+            current = current->left;
 
-        root->right = deleteNode(root->right, temp->data);
-        }
-        return root;
-    }
-    Node* minValueNode(Node* l)
-    {
-    Node* current = l;
-
-    while (current->left != NULL)
-        current = current->left;
-
-    return current;
+        return current;
     }
 
     string findMinNode(Node *tree){
