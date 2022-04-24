@@ -368,6 +368,8 @@ while(true){
         cin>>y;
         if(y==y){
             bst.makeEmpty();
+            cout<<endl;
+            cout<<"All contacts deleted."<<endl;
         }
     }
 
