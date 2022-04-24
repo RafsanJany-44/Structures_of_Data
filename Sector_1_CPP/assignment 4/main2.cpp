@@ -87,7 +87,6 @@ class BinarySearchTree{
                 cout<<tree->data<<", "<<tree->number<<endl;
                 cout<<endl;
                 return true;
-                
             }else if(number < tree->number){
                 return findNumber(tree->left,number);
             }else{
