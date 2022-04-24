@@ -1,10 +1,11 @@
 #include <iostream>
-#include <string>
+#include<string.h>
 using namespace std;
+
 struct Node
 {
     string data;
-    int number;
+    string number;
     Node *left;
     Node *right;
 };
@@ -13,7 +14,7 @@ class BinarySearchTree{
     private:
         Node* root;
 
-        void insertNode(Node *&tree, string data,int number){
+        void insertNode(Node *&tree, string data,string number){
             if(tree == NULL){
                 tree = new Node;
                 tree->data = data;
@@ -30,11 +31,10 @@ class BinarySearchTree{
         void printInOrder(Node *tree){
             if(tree == NULL){
                 cout<<endl;
-                cout<<endl;
                 return;
             }
             printInOrder(tree->left);
-            cout << tree->data << ", "<<tree->number<<",";
+            cout << tree->data << ", "<<tree->number;
             printInOrder(tree->right);
         }
 
@@ -59,20 +59,6 @@ class BinarySearchTree{
             }
         }
 
-        bool findNumber(Node *tree, int number){
-            if(tree==NULL){
-                return false;
-            }
-
-            if(tree->number == number){
-                return true;
-            }else if(number < tree->number){
-                return findNumber(tree->left,number);
-            }else{
-                return findNumber(tree->right,number);
-            }
-        }
-
         Node* retrieveName(Node *tree, string data){
             if(tree==NULL){
                 return NULL;
@@ -87,7 +73,27 @@ class BinarySearchTree{
             }
         }
 
-        Node* retrieveNumber(Node *tree, int number){
+            bool findNumber(Node *tree, string number){
+            if(tree==NULL){
+                cout<<endl;
+                cout<<"No contact found"<<endl;
+                cout<<endl;
+                return false;
+            }
+
+            if(tree->number == number){
+                cout<<"Contact found:"<<endl;
+                cout<<tree->data<<", "<<tree->number<<endl;
+                cout<<endl;
+                return true;
+            }else if(number < tree->number){
+                return findNumber(tree->left,number);
+            }else{
+                return findNumber(tree->right,number);
+            }
+        }
+
+        Node* retrieveNumber(Node *tree, string number){
             if(tree==NULL){
                 return NULL;
             }
@@ -100,50 +106,67 @@ class BinarySearchTree{
                 return retrieveNumber(tree->right,number);
             }
         }
-        void deleteNode(Node *&tree, int number){
-            if(tree == NULL){
-                return;
-            }
-            if(tree->number == number){
-                if(tree->left == NULL && tree->right == NULL){
-                    delete tree;
-                    tree = NULL;
-                }else if(tree->left != NULL){
-                    int maxLeftNode = findMaxNode(tree->left);
-                    tree->data = maxLeftNode;
-                    deleteNode(tree->left,maxLeftNode);
-                }else{
-                    int minRightNode = findMinNode(tree->right);
-                    tree->data = minRightNode;
-                    deleteNode(tree->right,minRightNode);
-                }
-            }else if(tree->number < number){
-                deleteNode(tree->right,number);
-            }else{
-                deleteNode(tree->left,number);
-            }
-        }
 
-        int findMinNode(Node *tree){
+    Node* deleteNode(Node * root, string num)
+    {
+        if (root == NULL) return root;
+
+        if (num.compare(root->number)<0)
+            root->left = deleteNode(root->left,num);
+
+        else if (num.compare(root->number)>0)
+            root->right =deleteNode(root->right,num);
+
+        else
+        {
+
+            if (root->left == NULL)
+            {
+                Node *temp = root->right;
+                return temp;
+            }
+            else if (root->right == NULL)
+            {
+                Node *temp = root->left;
+                return temp;
+            }
+
+            Node* temp = minValueNode(root->right);
+            root->number = temp->number;
+            root->data = temp->data;
+
+            root->right = deleteNode(root->right, temp->data);
+            }
+            return root;
+        }
+        Node* minValueNode(Node* l)
+        {
+        Node* current = l;
+
+        while (current->left != NULL)
+            current = current->left;
+
+        return current;
+    }
+
+    string findMinNode(Node *tree){
             if(tree == NULL){
-                return -1;
+                return "Null";
             }else if(tree->left == NULL){
                 return tree->number;
             }else{
                 return findMinNode(tree->left);
             }
         }
-
-        int findMaxNode(Node *tree){
+        string findMaxNode(Node *tree){
             if(tree == NULL){
-                return -1;
+                return "Null";
             }else if(tree->right == NULL){
                 return tree->number;
             }else{
                 return findMaxNode(tree->right);
             }
         }
-
         void makeEmpty(Node *&tree){
             if(tree == NULL){
                 return;
@@ -188,15 +211,15 @@ class BinarySearchTree{
             }
         }
         bool checkDuplicate(Node* parent) {
-        if (parent != nullptr) {   
-            if(checking(parent->left, parent->data)) return true; 
+        if (parent != nullptr) {
+            if(checking(parent->left, parent->data)) return true;
             if(checking(parent->right, parent->data)) return true;
-            return checkDuplicate(parent->left)||checkDuplicate(parent->right);  
+            return checkDuplicate(parent->left)||checkDuplicate(parent->right);
         }
         else return false;
     }
 
-        
+
 
 
 
@@ -204,7 +227,7 @@ class BinarySearchTree{
         BinarySearchTree(){
             root = NULL;
         }
-        void insertNode(string data,int number){
+        void insertNode(string data,string number){
             insertNode(root,data,number);
         }
 
@@ -221,7 +244,7 @@ class BinarySearchTree{
         }
 
 
-        Node* retrieveNumber(int number){
+        Node* retrieveNumber(string number){
             return retrieveNumber(root,number);
         }
 
@@ -229,12 +252,11 @@ class BinarySearchTree{
             return findName(root,data);
         }
 
-        bool findNumber(int number){
+        bool findNumber(string number){
             return findNumber(root,number);
         }
 
-
-        void deleteNode(int number){
+        void deleteNode(string number){
             deleteNode(root,number);
         }
 
@@ -292,18 +314,31 @@ while(true){
     int d;
     cout<<"--------------------"<<endl;
     cout<<"Select an option(1-7): ";
+
     cin>>d;
     cout<<"--------------------"<<endl;
     if(d==7){
-        break;
+        cout<<endl;
+        cout<<"> Are you sure? Enter y for yes, n for no: ";
+        string y;
+        cin>>y;
+        if(y==y){
+            bst.makeEmpty();
+            cout<<endl;
+            break;
+        }
     }
 
     else if(d==1){
-        if (bst.isEmpty()==false){
-            bst.printInOrder();
+        if(bst.isEmpty()==false){
+        cout<<endl;
+        cout<<"*** View Contacts ***"<<endl;
+        cout<<endl;
+        cout<<"Showing "<< bst.countNodes() <<" contacts:";
+        bst.printInOrder();
+        cout<<endl;
         }
-        else
-        {
+        else{
             cout<<endl;
             cout<<"Contact book is empty."<<endl;
             cout<<endl;
@@ -312,32 +347,87 @@ while(true){
 
     else if(d==2){
         string name;
-        int number;
+        string number;
         cout<<"Enter name: ";
-        //cin>>name;
+        cin.ignore();
         getline(cin,name);
-        cout<<"Enter phone number: ";
+        cout<<"Enter number: ";
         cin>>number;
         bst.insertNode(name,number);
+        cout<<endl;
+        cout<<"Contact added successfully."<<endl;
     }
 
-}
+    else if(d==4){
+        cout<<endl;
+        cout<<"*** Search Contact By Phone Number ***"<<endl;
+        string num;
+        cout<<"> Enter a Number: ";
+        cin>>num;
+        bst.findNumber(num);
+        
+    }
+    
+    else if(d==5){
+        cout<<"> Enter a phone number: ";
+        string num;
+        cin>>num;
+        if(bst.findNumber(num)){
+            cout<<"> Delete this contact? Enter y for yes, n for no:";
+            string y;
+            cin>>y;
+            if(y=="y"){
+                bst.deleteNode(num);
+                cout<<endl;
+                cout<<"Contact deleted successfully."<<endl;
+                cout<<endl;
+            }
+        }
+    }
 
-/* 
-bst.insertNode("abc dfasdf",2341234);
-bst.insertNode("asdf adf",1341234);
-bst.insertNode("asdf fasdf",35345);
-bst.insertNode("asdf lkoj",34534);
-bst.insertNode("fadf ljlkj",34534);
-bst.insertNode("adf lkj",4435);
-bst.insertNode("w",3455);
-bst.insertNode("h",345345);
-bst.printInOrder();
-cout<<endl;
-if(bst.checkDuplicate()==1){
-cout<<"The tree has duplicate values!!"<<endl;
-}
-else{
-cout<<"The tree has not duplicate values!!"<<endl;
-}*/
+    else if(d==6)
+    {
+        cout<<"*** Delete All Contacts ***"<<endl;
+        cout<<endl;
+        cout<<"> Are you sure? Enter y for yes, n for no: ";
+        string y;
+        cin>>y;
+        if(y==y){
+            bst.makeEmpty();
+            cout<<endl;
+            cout<<"All contacts deleted."<<endl;
+        }
+    }
+
+    else if(d==3){
+        string name;
+        cout<<"Enter name: ";
+        cin.ignore();
+        getline(cin,name);
+    }
+    }
+/* bst.insertNode("abc dfasdf",2341234);
+    bst.insertNode("asdf adf",1341234);
+    bst.insertNode("asdf fasdf",35345);
+    bst.insertNode("asdf lkoj",34534);
+    bst.insertNode("fadf ljlkj",34534);
+    bst.insertNode("adf lkj",4435);
+    bst.insertNode("w",3455);
+    bst.insertNode("h",345345);
+    bst.printInOrder();
+    cout<<endl;
+
+
+
+
+
+    if(bst.checkDuplicate()==1){
+
+        cout<<"The tree has duplicate values!!"<<endl;
+    }
+    else{
+        cout<<"The tree has not duplicate values!!"<<endl;
+    }*/
+    cout<<"*** Thank you for using Contact Book ***"<<endl;
+
 }
