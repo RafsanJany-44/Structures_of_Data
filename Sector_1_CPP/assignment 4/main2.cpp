@@ -297,8 +297,6 @@ class BinarySearchTree{
             return checkDuplicate(root);
         }
 };
-
-
 int main(){
     BinarySearchTree bst;
     cout<<"********************"<<endl;
@@ -332,7 +330,6 @@ while(true){
             break;
         }
     }
-
     else if(d==1){
         if(bst.isEmpty()==false){
         cout<<endl;
@@ -348,7 +345,6 @@ while(true){
             cout<<endl;
         }
     }
-
     else if(d==2){
         string name;
         string number;
