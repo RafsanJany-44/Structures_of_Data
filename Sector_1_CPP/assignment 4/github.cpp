@@ -11,31 +11,25 @@ class ContactBook{
 private:
     Contact *root;
     void insertContact(Contact *&tree,string name,string phoneNumber){
-        if(tree==NULL){
-            tree = new Contact;
-            tree->name = name;
-            tree->phoneNumber = phoneNumber;
-            tree->left = NULL;
-            tree->right = NULL;
-        }
-        else if((tree->name>='A'&&tree->name<='Z')||(tree->name>='a'&&tree->name<='z')||(tree->phoneNumber>='0'&&tree->phoneNumber<='9')){
-            if((name<tree->name)||(phoneNumber<tree->phoneNumber)){
+         if(tree == NULL){
+                tree = new Contact;
+                tree->name = name;
+                tree->phoneNumber=phoneNumber;
+                tree->left = NULL;
+                tree->right = NULL;
+            }else if(name < tree->name){
                 insertContact(tree->left,name,phoneNumber);
-            }
-            else{
+            }else{
                 insertContact(tree->right,name,phoneNumber);
             }
-
         }
-
-    }
 
     void printInOrder(Contact *tree){
         if(tree==NULL){
             return;
         }
         printInOrder(tree->left);
-        cout<<tree->data;
+        cout<<tree->name;
         printInOrder(tree->right);
     }
     bool findContact(Contact *tree, string name){
