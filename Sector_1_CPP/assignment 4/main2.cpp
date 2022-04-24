@@ -1,4 +1,5 @@
 #include <iostream>
+#include<string.h>
 using namespace std;
 
 struct Node
@@ -133,10 +134,10 @@ class BinarySearchTree{
     Node* deleteNode(Node * root, string num){
         if (root == NULL) return root;
 
-     if (strcmp(num,root->number)<0)
+     if (num.compare(root->number)<0)
         root->left = deleteNode(root->left,num);
 
-    else if (strcmp(num,root->number)>0)
+    else if (num.compare(root->number)>0)
         root->right =deleteNode(root->right,num);
 
     else
@@ -149,21 +150,29 @@ class BinarySearchTree{
         }
         else if (root->right == NULL)
         {
-             lin *temp = root->left;
+             Node *temp = root->left;
             return temp;
         }
 
-        Node* temp = findMinNode(root->right);
+        Node* temp = minValueNode(root->right);
         root->number = temp->number;
-        strcpy(root->lname,temp->lname);
-        strcpy(root->fname,temp->fname);
-        strcpy(root->email,temp->email);
-        root->right = deleteNode(root->right, temp->fname);
-    }
-    return root;
-}
+        root->data = temp->data;
 
-        string findMinNode(Node *tree){
+        root->right = deleteNode(root->right, temp->data);
+        }
+        return root;
+    }
+    Node* minValueNode(Node* l)
+    {
+    Node* current = l;
+
+    while (current->left != NULL)
+        current = current->left;
+
+    return current;
+    }
+
+    string findMinNode(Node *tree){
             if(tree == NULL){
                 return "Null";
             }else if(tree->left == NULL){
