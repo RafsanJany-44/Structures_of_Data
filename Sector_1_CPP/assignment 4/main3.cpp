@@ -8,29 +8,11 @@ int main()
     cout << "Enter name: ";
     cin.ignore();
     getline(cin, name);
-    string new1 = "";
-    string new2 = "";
-    int flag = 0;
-    char space=' ';
-    cout << name << endl;
-    for (int i = 0; i < name.length(); i++)
-    {
-        if (name[i] ==space) 
-        {
-            flag = 1;
-            continue;
-        }
-        if (flag == 1)
-        {
-            new2 = new2 + name[i];
-        }
-        else
-        {
-            new1 = new1 + name[i];
-        }
-    }
+    string new1 = firstName(name);
+    string new2 = firstName(name);
     cout<<new1<<endl;
     cout<<new2<<endl;
+
 }
 
 
@@ -48,4 +30,25 @@ string firstName(string name){
         }
     }
     return first_name;
+}
+
+
+
+string lastName(string name){
+    string last_name = "";
+    int flag = 0;
+    char space=' ';
+    cout << name << endl;
+    for (int i = 0; i < name.length(); i++)
+    {
+        if (name[i] ==space) 
+        {
+            flag=1;
+            continue;
+        }
+        if(flag==1){
+            last_name=last_name+name[i];
+        }
+    }
+    return last_name;
 }
