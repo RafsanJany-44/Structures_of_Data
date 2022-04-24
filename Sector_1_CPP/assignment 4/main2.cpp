@@ -350,14 +350,23 @@ while(true){
     else if(d==2){
         string name;
         string number;
-        cout<<"Enter name: ";
+        cout<<"> Enter name: ";
         cin.ignore();
         getline(cin,name);
-        cout<<"Enter number: ";
+        cout<<"> Enter number: ";
         cin>>number;
         bst.insertNode(name,number);
         cout<<endl;
+        cout<<endl;
+        if(bst.checkDuplicate()==1){
+            bst.deleteNode(number);
+            cout<<"Error: A contact with phone number 1234 already exists."<<endl;
+            cout<<endl;
+            cout<<endl;
+        }
+        else{
         cout<<"Contact added successfully."<<endl;
+        }
     }
 
     else if(d==4){
