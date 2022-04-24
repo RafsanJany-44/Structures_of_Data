@@ -82,10 +82,12 @@ class BinarySearchTree{
             }
 
             if(tree->number == number){
+                Node* temp=tree;
                 cout<<"Contact found:"<<endl;
                 cout<<tree->data<<", "<<tree->number<<endl;
                 cout<<endl;
                 return true;
+                
             }else if(number < tree->number){
                 return findNumber(tree->left,number);
             }else{
@@ -99,6 +101,7 @@ class BinarySearchTree{
             }
 
             if(tree->number == number){
+                cout<< tree->data<<", "<<tree->number<<endl;
                 return tree;
             }else if(number < tree->number){
                 return retrieveNumber(tree->left,number);
@@ -364,7 +367,7 @@ while(true){
         string num;
         cout<<"> Enter a Number: ";
         cin>>num;
-        bst.findNumber(num);
+        bst.retrieveNumber(num);
         
     }
     
