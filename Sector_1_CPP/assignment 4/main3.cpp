@@ -1,21 +1,6 @@
 #include <iostream>
 #include <string.h>
 using namespace std;
-
-int main()
-{
-    string name;
-    cout << "Enter name: ";
-    cin.ignore();
-    getline(cin, name);
-    string new1 = firstName(name);
-    string new2 = firstName(name);
-    cout<<new1<<endl;
-    cout<<new2<<endl;
-
-}
-
-
 string firstName(string name){
     string first_name = "";
     int flag = 0;
@@ -51,4 +36,16 @@ string lastName(string name){
         }
     }
     return last_name;
+}
+
+int main()
+{
+    string name;
+    cout << "Enter name: ";
+    cin.ignore();
+    getline(cin, name);
+    string new1 = firstName(name);
+    string new2 = firstName(name);
+    cout<<new1<<endl;
+    cout<<new2<<endl;
 }
