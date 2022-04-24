@@ -102,7 +102,6 @@ class BinarySearchTree{
             }
 
             if(tree->number == number){
-                cout<< tree->data<<", "<<tree->number<<endl;
                 return tree;
             }else if(number < tree->number){
                 return retrieveNumber(tree->left,number);
@@ -390,7 +389,6 @@ while(true){
             }
         }
     }
-
     else if(d==6)
     {
         cout<<"*** Delete All Contacts ***"<<endl;
@@ -404,7 +402,6 @@ while(true){
             cout<<"All contacts deleted."<<endl;
         }
     }
-
     else if(d==3){
         string name;
         cout<<"> Enter name: ";
@@ -413,7 +410,5 @@ while(true){
         bst.findName(name);
     }
     }
-
     cout<<"*** Thank you for using Contact Book ***"<<endl;
-
 }
