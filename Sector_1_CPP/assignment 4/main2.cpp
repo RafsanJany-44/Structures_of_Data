@@ -107,7 +107,7 @@ class BinarySearchTree{
         }
 
 
-        void deleteNode(Node *&tree, string number){
+        /*void deleteNode(Node *&tree, string number){
             if(tree == NULL){
                 return;
             }
@@ -129,7 +129,39 @@ class BinarySearchTree{
             }else{
                 deleteNode(tree->left,number);
             }
+        }*/
+    Node* deleteNode(Node * root, string num){
+        if (root == NULL) return root;
+
+     if (strcmp(num,root->number)<0)
+        root->left = deleteNode(root->left,num);
+
+    else if (strcmp(num,root->number)>0)
+        root->right =deleteNode(root->right,num);
+
+    else
+    {
+
+        if (root->left == NULL)
+        {
+            Node *temp = root->right;
+            return temp;
         }
+        else if (root->right == NULL)
+        {
+             lin *temp = root->left;
+            return temp;
+        }
+
+        Node* temp = findMinNode(root->right);
+        root->number = temp->number;
+        strcpy(root->lname,temp->lname);
+        strcpy(root->fname,temp->fname);
+        strcpy(root->email,temp->email);
+        root->right = deleteNode(root->right, temp->fname);
+    }
+    return root;
+}
 
         string findMinNode(Node *tree){
             if(tree == NULL){
