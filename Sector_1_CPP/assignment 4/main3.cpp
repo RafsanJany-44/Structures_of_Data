@@ -32,3 +32,20 @@ int main()
     cout<<new1<<endl;
     cout<<new2<<endl;
 }
+
+
+string firstName(string name){
+    string first_name = "";
+    int flag = 0;
+    char space=' ';
+    cout << name << endl;
+    for (int i = 0; i < name.length(); i++)
+    {
+        first_name=first_name+name[i];
+        if (name[i] ==space) 
+        {
+            break;
+        }
+    }
+    return first_name;
+}
