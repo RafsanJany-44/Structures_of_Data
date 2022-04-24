@@ -404,8 +404,6 @@ while(true){
         cout<<"Enter name: ";
         cin.ignore();
         getline(cin,name);
-        
-        
     }
    }
 /* bst.insertNode("abc dfasdf",2341234);
