@@ -11,10 +11,11 @@ int main()
     string new1 = "";
     string new2 = "";
     int flag = 0;
+    string space=" ";
     cout << name << endl;
     for (int i = 0; i < name.length(); i++)
     {
-        if (starcmp((name[i], " ")))
+        if (name[i] == space) 
         {
             flag = 1;
         }
