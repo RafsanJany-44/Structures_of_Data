@@ -371,7 +371,6 @@ while(true){
         cout<<"*** Search Contact By Phone Number ***"<<endl;
         string num;
         cout<<"> Enter a Number: ";
-        cout<<endl;
         cin>>num;
         bst.findNumber(num);
         
