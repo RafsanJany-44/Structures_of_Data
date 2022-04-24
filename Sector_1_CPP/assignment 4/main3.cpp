@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string.h>
 using namespace std;
+
 string firstName(string name){
     string first_name = "";
     int flag = 0;
     char space=' ';
-    cout << name << endl;
     for (int i = 0; i < name.length(); i++)
     {
         first_name=first_name+name[i];
@@ -23,7 +23,6 @@ string lastName(string name){
     string last_name = "";
     int flag = 0;
     char space=' ';
-    cout << name << endl;
     for (int i = 0; i < name.length(); i++)
     {
         if (name[i] ==space) 
