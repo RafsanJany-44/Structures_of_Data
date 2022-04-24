@@ -351,16 +351,15 @@ while(true){
         getline(cin,name);
         cout<<"> Enter number: ";
         cin>>number;
-        bst.insertNode(name,number);
         cout<<endl;
 
-        if(bst.checkDuplicate()==1){
-            bst.deleteNode(number);
+        if(bst.retrieveNumber(number)!= NULL){
             cout<<"Error: A contact with phone number "<<number<<" already exists."<<endl;
             cout<<endl;
             cout<<endl;
         }
         else{
+        bst.insertNode(name,number);
         cout<<"Contact added successfully."<<endl;
         cout<<endl;
         }
