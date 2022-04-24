@@ -51,6 +51,8 @@ class BinarySearchTree{
             }
 
             if(tree->data == data){
+                cout<<tree->data<<", "<<tree->number<<endl;
+                cout<<endl;
                 return true;
             }else if(data < tree->data){
                 return findName(tree->left,data);
@@ -295,8 +297,6 @@ class BinarySearchTree{
             return checkDuplicate(root);
         }
 };
-
-
 int main(){
     BinarySearchTree bst;
     cout<<"********************"<<endl;
@@ -330,7 +330,6 @@ while(true){
             break;
         }
     }
-
     else if(d==1){
         if(bst.isEmpty()==false){
         cout<<endl;
@@ -346,7 +345,6 @@ while(true){
             cout<<endl;
         }
     }
-
     else if(d==2){
         string name;
         string number;
@@ -356,7 +354,6 @@ while(true){
         cout<<"> Enter number: ";
         cin>>number;
         bst.insertNode(name,number);
-        cout<<endl;
         cout<<endl;
         if(bst.checkDuplicate()==1){
             bst.deleteNode(number);
@@ -374,7 +371,6 @@ while(true){
         cout<<"*** Search Contact By Phone Number ***"<<endl;
         string num;
         cout<<"> Enter a Number: ";
-        cout<<endl;
         cin>>num;
         bst.findNumber(num);
         
@@ -413,10 +409,13 @@ while(true){
 
     else if(d==3){
         string name;
-        cout<<"Enter name: ";
+        cout<<"> Enter name: ";
         cin.ignore();
         getline(cin,name);
+        bst.findName(name);
     }
     }
+
     cout<<"*** Thank you for using Contact Book ***"<<endl;
+
 }
