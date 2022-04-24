@@ -51,9 +51,16 @@ class BinarySearchTree{
             }
 
             if(tree->data == data){
+                Node * temp=tree;
                 cout<<tree->data<<", "<<tree->number<<endl;
                 cout<<endl;
-                return true;
+                if(temp==NULL){
+                    return true;
+                }
+                else{
+                    findName(temp,data);
+                }
+                
             }else if(data < tree->data){
                 return findName(tree->left,data);
             }else{
