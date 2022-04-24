@@ -300,7 +300,15 @@ while(true){
     cin>>d;
     cout<<"--------------------"<<endl;
     if(d==7){
-        break;
+        cout<<endl;
+        cout<<"> Are you sure? Enter y for yes, n for no: ";
+        string y;
+        cin>>y;
+        if(y==y){
+            bst.makeEmpty();
+            cout<<endl;
+            break;
+        }
     }
 
     else if(d==1){
@@ -396,6 +404,6 @@ while(true){
     else{
         cout<<"The tree has not duplicate values!!"<<endl;
     }*/
-
+    cout<<"*** Thank you for using Contact Book ***"<<endl;
 
 }
