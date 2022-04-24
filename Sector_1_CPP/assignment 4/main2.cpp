@@ -205,7 +205,7 @@ class BinarySearchTree{
         bool checking(Node* parent, string val) {
             if(parent == nullptr)
                 return false;
-            if (val == parent->data){
+            if (val == parent->number){
                 return true;
             }
             else{
@@ -216,8 +216,8 @@ class BinarySearchTree{
         }
         bool checkDuplicate(Node* parent) {
         if (parent != nullptr) {
-            if(checking(parent->left, parent->data)) return true;
-            if(checking(parent->right, parent->data)) return true;
+            if(checking(parent->left, parent->number)) return true;
+            if(checking(parent->right, parent->number)) return true;
             return checkDuplicate(parent->left)||checkDuplicate(parent->right);
         }
         else return false;
@@ -354,7 +354,7 @@ while(true){
         bst.insertNode(name,number);
         cout<<endl;
 
-        if(bst.checkDuplicate()==true){
+        if(bst.checkDuplicate()==1){
             bst.deleteNode(number);
             cout<<"Error: A contact with phone number "<<number<<" already exists."<<endl;
             cout<<endl;
