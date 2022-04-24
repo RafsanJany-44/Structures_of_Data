@@ -359,6 +359,18 @@ while(true){
         }
     }
 
+    else if(d==6)
+    {
+        cout<<"*** Delete All Contacts ***"<<endl;
+        cout<<endl;
+        cout<<"> Are you sure? Enter y for yes, n for no: ";
+        string y;
+        cin>>y;
+        if(y==y){
+            bst.makeEmpty();
+        }
+    }
+
 }
 /* bst.insertNode("abc dfasdf",2341234);
     bst.insertNode("asdf adf",1341234);
