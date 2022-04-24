@@ -51,6 +51,8 @@ class BinarySearchTree{
             }
 
             if(tree->data == data){
+                cout<<tree->data<<", "<<tree->number<<endl;
+                cout<<endl;
                 return true;
             }else if(data < tree->data){
                 return findName(tree->left,data);
@@ -418,28 +420,7 @@ while(true){
         getline(cin,name);
     }
     }
-/* bst.insertNode("abc dfasdf",2341234);
-    bst.insertNode("asdf adf",1341234);
-    bst.insertNode("asdf fasdf",35345);
-    bst.insertNode("asdf lkoj",34534);
-    bst.insertNode("fadf ljlkj",34534);
-    bst.insertNode("adf lkj",4435);
-    bst.insertNode("w",3455);
-    bst.insertNode("h",345345);
-    bst.printInOrder();
-    cout<<endl;
 
-
-
-
-
-    if(bst.checkDuplicate()==1){
-
-        cout<<"The tree has duplicate values!!"<<endl;
-    }
-    else{
-        cout<<"The tree has not duplicate values!!"<<endl;
-    }*/
     cout<<"*** Thank you for using Contact Book ***"<<endl;
 
 }
