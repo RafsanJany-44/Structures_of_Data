@@ -156,10 +156,10 @@ class BinarySearchTree{
             
         
             /* Get the height of left and right sub trees */
-            left_height = getHeight(root->left);
-            right_height = getHeight(root->right);
+            left_height = getHeight(tree->left);
+            right_height = getHeight(tree->right);
         
-            if (abs(left_height - right_height) <= 1 && isBalanced(root->left) && isBalanced(root->right)){
+            if (abs(left_height - right_height) <= 1 && isBalanced(tree->left) && isBalanced(tree->right)){
                 return true;
             }
         
@@ -181,8 +181,61 @@ class BinarySearchTree{
             return false;
             }
 
+            int getLeafCount(Node *tree)
+            {
+                if(tree == NULL)    
+                    return 0;
+                if(tree->left == NULL && tree->right == NULL)
+                    return 1;        
+                else
+                    return getLeafCount(tree->left)+
+                        getLeafCount(tree->right);
+            }
+
+            int maxValue(Node* tree)
+            {   
+               
+                Node* current = tree;
+                while (current->right != NULL){
+                    current = current->right;
+                }
+                
+                return (current->data);
+            }
+
+            int minValue(Node* tree)
+            {   
+                
+                Node* current = tree;
+                while (current->left != NULL){
+                    current = current->left;
+                }
+                
+                return (current->data);
+            }
+
+
+            int calculateSum(Node *tree){  
+            int sum=0, sumLeft=0, sumRight=0;  
+            
+            
+            if(tree == NULL) {  
+                return 0;  
+            }  
+  
+            if(tree->left != NULL){
+                sumLeft = calculateSum(tree->left);  
+            }
+            if(tree->right != NULL){
+                sumRight = calculateSum(tree->right);  
+            }
+            sum = tree->data + sumLeft + sumRight;  
+
+        }
+  
+
            
-    public:
+public:
         BinarySearchTree(){
             root = NULL;
         }
@@ -244,6 +297,18 @@ class BinarySearchTree{
 
        bool isFullBinaryTree(){
            return isFullBinaryTree(root);
+       }
+
+       int getLeafCount(){
+           return getLeafCount(root);
+       }
+
+       int maxValue(){
+           return maxValue(root);
+       }
+
+        int minValue(){
+           return minValue(root);
        }
 
     
